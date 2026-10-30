@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.6.1 — 2026-10-30
+
 - Adopt rule suggestions from the Historia-globen field report (#26): distinct
   insertion anchors for parallel additions to one file, keep-both resolution of
   append-only log conflicts, stated merge order for dependent PRs, short turns in the
