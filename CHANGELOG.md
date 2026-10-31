@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add a *Terms* table to COORDINATION.md defining scoped task, bounded pass, queue
+  session, eligible, startable, blocker, claim, active label, slot, integration owner,
+  resolved and drain; "reservation" is now "claim" throughout (#38).
 - Describe waiting per runtime: the core waits with the host's wait mechanism, and a
   runtime that cannot wait finishes as a bounded pass and says so; PROJECT.example.md
   gains a *Wait mechanism* line, and AI.md names background timers or Monitor for
