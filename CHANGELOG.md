@@ -50,6 +50,10 @@
 - Describe PR delivery mode: a delivery-mode line in PROJECT.example.md, and in the
   core the "PR open, not on main" result, issue closure after merge, paused labels,
   a merge rehearsal of open PRs at session review and refreshing branches per merge (#37).
+- Remove the stale verification images and README from `docs/verification` (they show a
+  README state that no longer exists); the evidence stays in the v0.1.2 history and is
+  linked from #6. Verification evidence goes in the issue or the release, not in the
+  repository, since `git subtree` copies every file to each consumer (#41).
 
 ## 0.6.1 — 2026-10-30
 

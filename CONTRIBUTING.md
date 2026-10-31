@@ -41,7 +41,9 @@ For update-discovery changes, also walk through a relevant fix, an optional feat
 a mixed/incompatible release, a tag-only release, an offline check and an existing
 proposal/deferral. No browser or application benchmark is required for prose changes.
 Do not claim measured speedups from the rules alone: use coarse real delivery timings
-and regression/reopen outcomes for comparable work.
+and regression/reopen outcomes for comparable work. Verification evidence (screenshots,
+logs) goes in the issue or the release, not in the repository, because `git subtree`
+copies every file to each consumer.
 
 ## Release checklist
 
