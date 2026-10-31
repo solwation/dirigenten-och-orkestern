@@ -122,7 +122,7 @@ updates and the upstream release check are in [INSTALL.md](INSTALL.md).
 | [ISSUE-WORKFLOW.md](ISSUE-WORKFLOW.md) | GitHub labels and issue state via Issueflow |
 | [PROJECT.example.md](PROJECT.example.md) | Template for your project policy and hooks |
 | [INSTALL.md](INSTALL.md) | Install, update and release discovery |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Improving the package and maintainer checks |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Improving the package, field reports and maintainer checks |
 
 Changes are listed in [CHANGELOG.md](CHANGELOG.md). MIT licensed; see
 [LICENSE.md](LICENSE.md).

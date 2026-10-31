@@ -15,6 +15,17 @@ regardless of version number. See [CHANGELOG.md](CHANGELOG.md). Contributions sh
 explain the concrete wasted work or missed quality gate and how the revised rule fixes
 it. Validate instructions with a small scenario walkthrough, not keyword-count tests.
 
+## Field reports
+
+A consumer's experience is the best input for rule changes. The way in is **an issue in
+this repository** using the template `.github/ISSUE_TEMPLATE/field-report.md`, not a
+pull request or a file in the package, so no project content lands in the subtree. A
+consumer's conductor may write the report when the maintainer asks for one. The template
+asks for project and runtime, installed version, what worked, where work was lost and
+suggestions per rule with file and section; give a revision or commit for each
+observation, and keep private project content, data and credentials out. Consumers do
+not need to read the template in normal operation.
+
 ## Maintainer checks
 
 Agents maintaining this repository start with [AI.md](AI.md), its own host policy

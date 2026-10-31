@@ -36,6 +36,10 @@
   a marked *Examples* section in ORCHESTRA.md; all time limits (update-check reuse,
   verification and progress review points, shared verification turns, wait length) are
   collected in *Default time limits* as host-adjustable review points (#30).
+- Add a *Field reports* section to CONTRIBUTING.md and an issue template
+  `.github/ISSUE_TEMPLATE/field-report.md` (headings from the Historia-globen report):
+  the way in is an issue in this repository, asked for by the maintainer. Maintainer
+  and contributor tooling only: no requirement for consuming projects (#39).
 
 ## 0.6.1 — 2026-10-30
 
