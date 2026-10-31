@@ -12,17 +12,17 @@ snapshot and record the result. Use a GitHub connector, an authenticated checkou
 (with GitHub CLI):
 
 ```sh
-# 1. The file's latest change commit (not the repository's main SHA, which changes on every commit)
+# 1. The file's latest change commit (not main's SHA, which moves on every commit)
 gh api 'repos/solwation/github-dashboard/commits?path=public/ISSUEFLOW.md&per_page=1' --jq '.[0].sha'
-# 2. The guide at exactly that revision (substitute the SHA for <sha>); compare with issueflow/ISSUEFLOW.md
+# 2. The guide at that exact revision; compare with issueflow/ISSUEFLOW.md
 gh api -H 'Accept: application/vnd.github.raw+json' \
   'repos/solwation/github-dashboard/contents/public/ISSUEFLOW.md?ref=<sha>'
 ```
 
 Record "identical to snapshot `<snapshot rev>`" when the content equals the snapshot,
-otherwise the file's change commit. On a difference, create (or reuse) an issue in this
-repository to refresh the snapshot instead of reinterpreting the rules, and follow the
-fetched current guide meanwhile.
+otherwise the file's change commit. On a difference, follow the fetched guide and
+create (or reuse) an issue in `solwation/dirigenten-och-orkestern` (a consumer may use
+its upstream proposal channel) to refresh the snapshot, instead of reinterpreting rules.
 
 The reviewed [bundled snapshot](issueflow/ISSUEFLOW.md) is byte-for-byte from the file's
 change commit `e22d6dc8ca542a5e76bcecff12532542558ebbb1`, with its
