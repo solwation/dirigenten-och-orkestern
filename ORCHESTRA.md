@@ -207,7 +207,8 @@ Attribution names the actual tool when required.
 *PR mode* (the host's delivery mode is a PR the user merges, see
 [PROJECT.example.md](PROJECT.example.md)): the result note says "PR open, not on main";
 the issue closes only after the merge, or by the host's rule, and until then its active
-labels are removed (paused under [Issueflow](ISSUE-WORKFLOW.md)). Merge order and
+labels are removed (paused under [Issueflow](ISSUE-WORKFLOW.md)); whichever session's
+queue fetch first sees the merge posts the completion comment and closes. Merge order and
 refreshing branches after each merge: [Select and claim](COORDINATION.md#select-and-claim).
 
 ## Follow-up
