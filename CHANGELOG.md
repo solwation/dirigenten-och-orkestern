@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.7.0 — 2026-10-31
+
 - Add a *Terms* table to COORDINATION.md defining scoped task, bounded pass, queue
   session, eligible, startable, blocker, claim, active label, slot, integration owner,
   resolved and drain; "reservation" is now "claim" throughout (#38).
