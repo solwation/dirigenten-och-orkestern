@@ -38,7 +38,7 @@ session instead.
 
 At conductor startup/resume, follow the host's upstream settings and
 [update-discovery procedure](INSTALL.md#check-for-upstream-updates); reuse a successful
-check for 24 hours by default. Always propose relevant published bug fixes; other
+check within the update-check [time limit](#default-time-limits). Always propose relevant published bug fixes; other
 upgrades are optional. Discovery never imports updates or enables unattended work.
 
 ### Resume unfinished work first
@@ -172,22 +172,22 @@ suites and release gates still apply.
 | --- | --- |
 | Documentation/instructions | Diff, links and consistency with retained requirements |
 | Local behavior | Relevant component check and affected real integration/route |
-| Shared protocol, persistence, security or renderer | Changed boundaries and representative consumers; broaden for a stated risk |
+| Shared protocol, persistence, security or other shared component | Changed boundaries and representative consumers; broaden for a stated risk |
 
 Use the existing harness; add a regression check only when it catches a meaningful
 failure. Fix failures this change caused and rerun affected checks; track proven
-unrelated baseline defects separately (they waive no acceptance). A component render is
-not evidence for the whole application; do not claim native hardware performance from
-emulation. Hard contracts and explicit user gates are never waived; evidence only a
+unrelated baseline defects separately (they waive no acceptance). A partial check is
+not evidence for the whole; do not claim performance for an environment other than the
+one measured ([examples](#examples)). Hard contracts and explicit user gates are never waived; evidence only a
 device or the user can supply is no closing gate by default
 ([best-guess closure](#close-after-a-best-guess-fix)).
 
 Bind results to revision, inputs, environment and quality mode; after an unrelated
 rebase rerun only checks touched by changed code, inputs, conflicts or a concrete risk.
-Correct a bad evidence camera and repeat that check, not every scene/platform. A guessed
-historical performance threshold alone does not justify optimization. Stop once agreed
-checks pass; at about 10 minutes of verification, reassess and pick the smallest check
-for the missing proof, without skipping required verification or hiding failures.
+Correct a faulty evidence setup and repeat only that check. A guessed historical
+threshold alone does not justify optimization. Stop once agreed checks pass; when
+verification passes its [time limit](#default-time-limits), reassess and pick the
+smallest check for the missing proof, without skipping required verification or hiding failures.
 
 ## Review
 
@@ -224,9 +224,9 @@ separate reporting phase.
 ### Close after a best-guess fix
 
 When the only missing evidence is a physical device, a specific user's hardware or the
-user's own experience (a crash on their phone, "does it feel right now"), do not park
+user's own experience ([examples](#examples)), do not park
 the issue or post it as a user question. Diagnose with available reports and tools,
-make the best supported fix, verify what can be verified (emulation, measurement,
+make the best supported fix, verify what can be verified (simulation, measurement,
 tests) and close; the completion comment says what was and was not verified and why, so
 the user can reopen. Never present untested behavior as tested. Keep the issue open only
 when the host policy or issue makes that device or user acceptance a closing gate, or
@@ -234,9 +234,35 @@ no plausible fix exists yet; then record diagnosis, next action and owner.
 
 ## Keep progress observable
 
-Follow host heartbeat rules. Reassess after roughly 30 minutes without a useful delivery
-and diagnose at 45–60 minutes without progress: inspect hung processes, resume and
+Follow host heartbeat rules. Reassess and then diagnose when a delivery passes the
+progress [time limits](#default-time-limits) without useful output: inspect hung processes, resume and
 preserve evidence rather than restart, and do not let setup, polish or coordination
 consume hours. Record coarse phase times, worker count and rerun reasons in the
 completion note; claim speedups only from comparable tasks and reopen rates, never from
 issue timestamps.
+
+## Default time limits
+
+Review points, not deadlines, and only where the runtime shows elapsed time; a host
+policy can change any of them.
+
+| Limit | Default | Where |
+| --- | --- | --- |
+| Reuse a successful update check | 24 hours | [Check the installed workflow](#check-the-installed-workflow) |
+| Reassess verification before another costly sweep | about 10 minutes of verification | [Verification](#verification) |
+| Reassess, then diagnose, a delivery without useful output | about 30, then 45–60 minutes | [Keep progress observable](#keep-progress-observable) |
+| One turn on shared expensive verification | under about 5 minutes | [Select and claim](COORDINATION.md#select-and-claim) |
+| One interruptible wait while polling or idle | at most 60 seconds | [Poll, idle and stop](COORDINATION.md#poll-idle-and-stop) |
+
+## Examples
+
+Illustrations of generic rules above; they add no rules.
+
+- *A partial check is not evidence for the whole*: a component render or a single
+  route does not show the whole application working.
+- *Performance only for the measured environment*: frame rates in an emulator or a
+  headless browser say nothing about native hardware.
+- *Repeat only the faulty check*: a screenshot taken with a wrong camera angle is
+  recaptured for that view, not for every scene and platform.
+- *Best-guess closure*: a crash reported on the user's phone, touch behavior on one
+  device, or "does it feel right now".

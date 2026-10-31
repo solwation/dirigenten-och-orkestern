@@ -30,6 +30,12 @@
 - Split the worker brief in WORKER.md into a session block written once and a short
   assignment block, recommend a shared batch brief for issues that follow one pattern,
   and group the worker rules by isolation, scope, escalation and reporting (#36).
+- Make the core rules project-neutral: verification now says "a partial check is not
+  evidence for the whole", "claim performance only for the measured environment" and
+  "repeat only the faulty check", with the former camera/emulator/phone wording moved to
+  a marked *Examples* section in ORCHESTRA.md; all time limits (update-check reuse,
+  verification and progress review points, shared verification turns, wait length) are
+  collected in *Default time limits* as host-adjustable review points (#30).
 
 ## 0.6.1 — 2026-10-30
 

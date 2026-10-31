@@ -20,7 +20,8 @@ behind; those need a queue session. A given scope (issue, area) still bounds the
 Bounded passes and queue sessions are unattended: never ask in the chat. Decide what
 the host policy authorizes (including releases under its rule) and what judgement can
 settle. Post a question only the user can answer on the affected issue through the
-host's channel (on GitHub, the `user question` label) with options and a recommendation. A request to test on the user's device is not such a question
+host's channel (on GitHub, the `user question` label) with options and a
+recommendation. A request to test on the user's device is not such a question
 ([best-guess closure](ORCHESTRA.md#close-after-a-best-guess-fix)). Release the claim and
 active labels, keep that acceptance open and continue with other eligible work. Skip
 the issue until the user answers there; a new comment alone is not an answer, and
@@ -68,7 +69,7 @@ delegation) and recorded.
 
 Schedule expensive verification (browser/e2e suites, devices, shared environments) as a
 queued shared resource: workers implement and run fast checks in parallel and take
-short turns (for example under five minutes) for the expensive run, splitting long
+short turns ([time limit](ORCHESTRA.md#default-time-limits)) for the expensive run, splitting long
 scenarios into several turns, so its cost does not set the worker cap.
 
 Workers adding records to one append-mostly file each get a distinct insertion anchor
@@ -173,9 +174,9 @@ latest implementation issue resolved **by this session** in scope, or from the f
 idle entry if none; each new resolution restarts the full interval. Other sessions'
 resolutions never shorten it: with one hour, a session starting at 13:30 on an empty
 queue waits until 14:30 even if another session closed an issue at 13:25. Older and
-newly created issues stay eligible unless excluded. Keep no active labels while idle. Use interruptible waits
-of at most 60 seconds; stop promptly on user pause/stop, save a checkpoint and release
-inactive claims.
+newly created issues stay eligible unless excluded. Keep no active labels while idle.
+Wait interruptibly within the [time limit](ORCHESTRA.md#default-time-limits); stop
+promptly on user pause/stop, save a checkpoint and release inactive claims.
 
 Intake keeps its schedule while idle, so new reports can end the wait. At the deadline,
 make a final successful complete fetch and required intake check; finish only if no
