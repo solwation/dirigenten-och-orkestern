@@ -108,8 +108,9 @@ cp .orchestra/shared/PROJECT.example.md .orchestra/project.md
 
 Fill in `.orchestra/project.md`, point your agent's entry file (`AGENTS.md`,
 `CLAUDE.md`, …) at it and at `.orchestra/shared/ORCHESTRA.md`, and ask for a change.
-Optionally add a thin `/orkester` command that does the same. Pinning, updates and
-the upstream release check are in [INSTALL.md](INSTALL.md).
+Optionally add a thin `/orkester` command that does the same (entry files and a
+copyable adapter are in [INSTALL.md](INSTALL.md#connect-agent-entry-points)). Pinning,
+updates and the upstream release check are in [INSTALL.md](INSTALL.md).
 
 ## What's inside
 

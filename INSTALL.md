@@ -20,6 +20,58 @@ is only a thin adapter: read host policy, read core, pass user scope (for an emp
 scope see the [read map](ORCHESTRA.md#read-map)). Do not copy the core into a second
 prompt. Keep project configuration outside `.orchestra/shared`.
 
+### Connect agent entry points
+
+Each agent reads its own instruction file; add the entry snippet below to the one your
+agent uses (or to several). Names checked against each vendor's documentation:
+
+| Agent | Entry file | Notes |
+| --- | --- | --- |
+| Claude Code | `CLAUDE.md` | Reads `AGENTS.md` only when no `CLAUDE.md` exists; otherwise add `@AGENTS.md` to `CLAUDE.md` to share one file ([docs](https://code.claude.com/docs/en/memory#agents-md)) |
+| Codex | `AGENTS.md` | [docs](https://developers.openai.com/codex/guides/agents-md) |
+| Gemini CLI | `GEMINI.md` | `AGENTS.md` only if `context.fileName` is configured ([docs](https://geminicli.com/docs/cli/gemini-md/)) |
+| Cursor | `AGENTS.md`, or `.cursor/rules/orchestra.mdc` | A rule needs `alwaysApply: true` in its frontmatter to apply to every chat ([docs](https://cursor.com/docs/context/rules)) |
+| GitHub Copilot | `.github/copilot-instructions.md` | Also reads `AGENTS.md` ([docs](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)) |
+
+Vendors rename files and add fallbacks; if your version ignores an entry file, check
+its current documentation. Copyable entry snippet:
+
+```md
+This repository uses the orchestra workflow.
+Project policy: read `.orchestra/project.md` first.
+Workflow core: follow `.orchestra/shared/ORCHESTRA.md`, starting from its read map.
+```
+
+The shared tree's own `.claude/commands/` is not read by any client once installed
+under `.orchestra/shared`, so a consumer copies an adapter. For Claude Code, save as
+`.claude/commands/orkester.md`:
+
+```md
+---
+description: Run the orchestra on this repository
+argument-hint: "[scope or issue number]"
+---
+
+Requested scope: $ARGUMENTS
+
+Read `.orchestra/project.md`, then read the core through the read map in
+`.orchestra/shared/ORCHESTRA.md`. Pass the requested scope on to the conductor; for an
+empty scope follow the host policy.
+```
+
+For clients without commands, paste this prompt, or write it as a prompt file:
+
+```md
+Run the orchestra. Requested scope: <scope, or empty>
+
+Read `.orchestra/project.md`, then read the core through the read map in
+`.orchestra/shared/ORCHESTRA.md`. Pass the requested scope on to the conductor; for an
+empty scope follow the host policy.
+```
+
+Keep rules such as timers, labels and question handling out of these files: they live
+in the core and the host policy.
+
 Record the release and resolved upstream commit in the host policy. The installed
 subtree stays pinned: [update discovery](#check-for-upstream-updates) proposes changes
 without importing them at startup. The separately maintained Issueflow guide is

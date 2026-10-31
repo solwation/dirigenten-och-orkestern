@@ -24,6 +24,9 @@
   once as a host setting with a bounded pass as default. The anchor
   `#choose-the-smallest-useful-team` no longer holds the isolation list; link
   `ORCHESTRA.md#isolate-concurrent-agents` instead (#28, #29).
+- Document agent entry files (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot) in
+  INSTALL.md with a copyable entry snippet and a copyable `/orkester` adapter, as a
+  Claude Code command and as a plain prompt, so consumers need not write one (#40).
 
 ## 0.6.1 — 2026-10-30
 
