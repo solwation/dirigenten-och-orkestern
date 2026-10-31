@@ -150,6 +150,11 @@ reviewed; this pass looks for what only shows up across them:
 - documentation, configuration or instructions left inconsistent with the changes;
 - leftover claims, active labels, worktrees, servers or unpublished commits.
 
+In PR mode, also rehearse the merge: merge the open PRs in merge order in a scratch
+branch or worktree and run the checks, to catch conflicts and invariants that break
+only together; fix findings in the PRs. After the user merges each PR, refresh the
+remaining branches ([merge order](#select-and-claim)).
+
 Base it on the combined diff since the session's starting revision per repository, the
 closed issues and their evidence; rerun a check only on concrete suspicion. Keep it to
 roughly one ordinary review per few deliveries. Read-only parts (by repository, area or

@@ -204,6 +204,12 @@ affected checks. A commit, a deployment and verified behavior are distinct; repo
 exactly what exists: outcome, revision, checks, limitations, deployment, remaining work.
 Attribution names the actual tool when required.
 
+*PR mode* (the host's delivery mode is a PR the user merges, see
+[PROJECT.example.md](PROJECT.example.md)): the result note says "PR open, not on main";
+the issue closes only after the merge, or by the host's rule, and until then its active
+labels are removed (paused under [Issueflow](ISSUE-WORKFLOW.md)). Merge order and
+refreshing branches after each merge: [Select and claim](COORDINATION.md#select-and-claim).
+
 ## Follow-up
 
 The conductor owns follow-up unless the plan names another owner, and picks the smallest

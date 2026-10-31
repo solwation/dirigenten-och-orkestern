@@ -44,6 +44,9 @@
   `.github/ISSUE_TEMPLATE/field-report.md` (headings from the Historia-globen report):
   the way in is an issue in this repository, asked for by the maintainer. Maintainer
   and contributor tooling only: no requirement for consuming projects (#39).
+- Describe PR delivery mode: a delivery-mode line in PROJECT.example.md, and in the
+  core the "PR open, not on main" result, issue closure after merge, paused labels,
+  a merge rehearsal of open PRs at session review and refreshing branches per merge (#37).
 
 ## 0.6.1 — 2026-10-30
 

@@ -34,6 +34,7 @@ not executable code. Keep project details here, never in the shared instructions
 - Required tests, release checks and evidence-before-close: <rules>.
 - Phase hooks: <definitions below or a link to project documentation; none if unused>.
 - Publishing: <branch/PR/direct policy and authorization>; no force push by default.
+- Delivery mode: <direct to main | PR the user merges | PR with auto-merge>.
 - Cross-project boundaries and attribution/licenses: <rules>.
 - Installed shared version: <release and exact commit>; update using shared INSTALL.md.
 - Upstream discovery: <official repository/release source>; check at conductor
