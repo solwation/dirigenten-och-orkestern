@@ -12,6 +12,10 @@
 - Add a release checklist to CONTRIBUTING.md and `scripts/check-release.sh`, which checks that
   the pins in README.md and INSTALL.md equal the latest tag, that every tag has a GitHub
   release and that CHANGELOG has a heading for it. Maintainer tooling only (#33).
+- Record the Issueflow guide's file change commit instead of the repository's main SHA,
+  compare the fetched guide with the bundled snapshot (at most two API calls) and open
+  an issue to refresh the snapshot on a difference; snapshot provenance is now the file
+  change commit `e22d6dc` (#35).
 
 ## 0.6.1 — 2026-10-30
 
