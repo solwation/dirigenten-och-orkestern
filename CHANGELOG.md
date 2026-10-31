@@ -9,6 +9,9 @@
 - Align the maintainer host policy AI.md with PROJECT.example.md: add the missing settings
   (model selection, capacity, claims, heartbeat, review), trim the hooks to project-specific
   ones and document the `gh issue view` and "Fixes #N" pitfalls (#31).
+- Add a release checklist to CONTRIBUTING.md and `scripts/check-release.sh`, which checks that
+  the pins in README.md and INSTALL.md equal the latest tag, that every tag has a GitHub
+  release and that CHANGELOG has a heading for it. Maintainer tooling only (#33).
 
 ## 0.6.1 — 2026-10-30
 

@@ -129,7 +129,8 @@ also run by CI) and consistency with the
 shared rules. Exercise distribution changes in a disposable repository as required
 by [CONTRIBUTING.md](CONTRIBUTING.md#maintainer-checks). Release only when a fresh complete fetch shows no open issues in this
 repository (or when the maintainer requests one), bundling everything under
-*Unreleased* in CHANGELOG; choose patch/minor under the
+*Unreleased* in CHANGELOG, following the
+[release checklist](CONTRIBUTING.md#release-checklist); choose patch/minor under the
 [versioning rules](CONTRIBUTING.md#improve-it-across-projects), while a major
 release needs an answered issue question. Close an issue whose only remaining
 criterion is inclusion in a release once its change is on `main` under *Unreleased*.

@@ -31,3 +31,21 @@ a mixed/incompatible release, a tag-only release, an offline check and an existi
 proposal/deferral. No browser or application benchmark is required for prose changes.
 Do not claim measured speedups from the rules alone: use coarse real delivery timings
 and regression/reopen outcomes for comparable work.
+
+## Release checklist
+
+Choose the version under the [versioning rules](#improve-it-across-projects), then:
+
+1. In [CHANGELOG.md](CHANGELOG.md), add `## X.Y.Z — YYYY-MM-DD` directly under
+   *Unreleased*, so the bullets become that version's section.
+2. Set the pin `git subtree add ... vX.Y.Z --squash` in [README.md](README.md) and
+   [INSTALL.md](INSTALL.md); both change in every release.
+3. Commit as `Release vX.Y.Z` and tag that commit `vX.Y.Z` (the latest tags are
+   lightweight, earlier ones annotated; either works). Push the commit and the tag.
+4. Create the GitHub release `vX.Y.Z — <short Swedish subtitle>` (see `gh release list`
+   for the style) with the CHANGELOG section as notes.
+5. Run `scripts/check-release.sh`: pins, a release for every tag and a CHANGELOG
+   heading for the latest tag must all match.
+6. Never move or delete a tag. If tag or release creation is denied by permissions,
+   leave the issue's release criterion open, report the blocker and do not close an
+   issue whose only remaining criterion is the release.
