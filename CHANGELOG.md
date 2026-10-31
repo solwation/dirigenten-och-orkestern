@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add `scripts/check-links.py`, a dependency-free check of relative Markdown links and
+  heading anchors, and a GitHub Action running it on push and pull request; the
+  maintainer "Check instructions" hook points to it. Maintainer tooling only: no
+  requirement for consuming projects (#34).
+
 ## 0.6.1 — 2026-10-30
 
 - Adopt rule suggestions from the Historia-globen field report (#26): distinct

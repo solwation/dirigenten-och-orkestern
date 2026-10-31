@@ -57,7 +57,7 @@ applies and owned by the conductor; delegate only explicit scoped activities.
 | --- | --- | --- |
 | Plan repository work | `planning`: every change, before implementation | Read the relevant policy/topic docs and create/reuse the issue with labels and a short plan under the GitHub rules below |
 | Preserve scope | `implementation`: every change, before verification | Inspect the patch for unrelated edits and preserve concurrent work |
-| Check instructions | `verification`: documentation changes, before review | Check diff, relative links and consistency; walk through changed workflow scenarios and record results in the issue completion note |
+| Check instructions | `verification`: documentation changes, before review | Check diff and consistency; run `python3 scripts/check-links.py` for relative links and anchors; walk through changed workflow scenarios and record results in the issue completion note |
 | Review delivery | `review`: every change, before publishing | Read the combined diff and check acceptance against existing evidence; correct concrete defects |
 | Publish main | `delivery`: every completed requested change | Follow the publishing rules below; confirm the delivered commit is on remote main |
 | Complete issue | `follow-up`: every tracked change, before closure | Post the completion comment and relevant evidence under the rules below, remove active labels and close only if acceptance is met |
@@ -106,7 +106,8 @@ combined changes and repeat affected checks. Push normally; never force-push or
 bypass branch protection. If direct push is blocked, preserve the work and report
 the actual blocker.
 
-For documentation changes, check the diff, relative links and consistency with the
+For documentation changes, check the diff, relative links (`python3 scripts/check-links.py`,
+also run by CI) and consistency with the
 shared rules. Exercise distribution changes in a disposable repository as required
 by [CONTRIBUTING.md](CONTRIBUTING.md#maintainer-checks). Release only when a fresh complete fetch shows no open issues in this
 repository (or when the maintainer requests one), bundling everything under
