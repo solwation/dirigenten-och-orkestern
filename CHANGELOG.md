@@ -27,6 +27,9 @@
 - Document agent entry files (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot) in
   INSTALL.md with a copyable entry snippet and a copyable `/orkester` adapter, as a
   Claude Code command and as a plain prompt, so consumers need not write one (#40).
+- Split the worker brief in WORKER.md into a session block written once and a short
+  assignment block, recommend a shared batch brief for issues that follow one pattern,
+  and group the worker rules by isolation, scope, escalation and reporting (#36).
 
 ## 0.6.1 — 2026-10-30
 

@@ -111,8 +111,8 @@ when supported instead of inheriting the conductor's strongest setting, and assu
 price from a model name. When selection is locked, say so once and save through scope,
 context and tools. Never claim a model the tool did not use or ask the user about
 routine settings. Record the choice in one plan line: capability/effort, why, and a
-stop/reassessment condition. Brief workers [compactly](WORKER.md) with acceptance, paths
-and findings; prefer targeted searches, bounded output and batched reads; reuse fresh
+stop/reassessment condition. Brief workers with a [session block once and a short
+assignment block](WORKER.md) carrying acceptance, paths and findings; prefer targeted searches, bounded output and batched reads; reuse fresh
 setup, data and evidence; stop exploring once acceptance is met.
 
 Escalate for a concrete capability gap, ambiguity, high-impact risk or failed bounded
