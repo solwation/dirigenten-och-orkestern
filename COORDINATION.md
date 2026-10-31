@@ -175,8 +175,11 @@ idle entry if none; each new resolution restarts the full interval. Other sessio
 resolutions never shorten it: with one hour, a session starting at 13:30 on an empty
 queue waits until 14:30 even if another session closed an issue at 13:25. Older and
 newly created issues stay eligible unless excluded. Keep no active labels while idle.
-Wait interruptibly within the [time limit](ORCHESTRA.md#default-time-limits); stop
-promptly on user pause/stop, save a checkpoint and release inactive claims.
+Wait with the host's wait mechanism, interruptibly within the
+[time limit](ORCHESTRA.md#default-time-limits); stop promptly on user pause/stop, save a
+checkpoint and release inactive claims. A runtime that cannot wait (a one-shot or
+non-interactive run) finishes as a [bounded pass](#run-a-bounded-pass) instead and says
+in its result that no poll or idle watch ran.
 
 Intake keeps its schedule while idle, so new reports can end the wait. At the deadline,
 make a final successful complete fetch and required intake check; finish only if no

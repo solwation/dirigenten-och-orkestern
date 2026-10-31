@@ -23,6 +23,8 @@ not executable code. Keep project details here, never in the shared instructions
   the core resource policy; document limits rather than assuming inherited effort is
   economical. No provider-specific identifier is required by the shared core.
 - Poll interval, idle watch, heartbeat and stale-work limits: <durations or disabled>.
+  Wait mechanism: <how the runtime waits between polls and while idle>; when the
+  runtime cannot wait: <e.g. run a bounded pass and report it>.
 - Questions/blocked work: <channel and label lifecycle, e.g. the `user question`
   label>. Release rule in a pass: <e.g. only once no open issues remain/never>.
 - Intake hooks: <local procedure and triggers, or none>; they run while workers are

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Describe waiting per runtime: the core waits with the host's wait mechanism, and a
+  runtime that cannot wait finishes as a bounded pass and says so; PROJECT.example.md
+  gains a *Wait mechanism* line, and AI.md names background timers or Monitor for
+  interactive Claude Code and a bounded pass for `claude -p` and one-shot runs (#32).
 - Add `scripts/check-links.py`, a dependency-free check of relative Markdown links and
   heading anchors, and a GitHub Action running it on push and pull request; the
   maintainer "Check instructions" hook points to it. Maintainer tooling only: no

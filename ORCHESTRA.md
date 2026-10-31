@@ -252,7 +252,7 @@ policy can change any of them.
 | Reassess verification before another costly sweep | about 10 minutes of verification | [Verification](#verification) |
 | Reassess, then diagnose, a delivery without useful output | about 30, then 45–60 minutes | [Keep progress observable](#keep-progress-observable) |
 | One turn on shared expensive verification | under about 5 minutes | [Select and claim](COORDINATION.md#select-and-claim) |
-| One interruptible wait while polling or idle | at most 60 seconds | [Poll, idle and stop](COORDINATION.md#poll-idle-and-stop) |
+| Longest wait before noticing a user stop, while polling or idle | about 60 seconds, as the wait mechanism allows | [Poll, idle and stop](COORDINATION.md#poll-idle-and-stop) |
 
 ## Examples
 
