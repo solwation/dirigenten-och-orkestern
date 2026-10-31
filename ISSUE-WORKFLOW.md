@@ -33,14 +33,10 @@ session instead of fetching it per label operation. Re-read after an explicit us
 policy update. Refresh the snapshot/provenance in a shared release when upstream
 changes; consumers then receive the same reviewed offline fallback.
 
-Use canonical labels, remove *all recognized active-work labels* when pausing or
-closing (not just the spelling `in-progress`), and keep ownership separate from status.
-A worker waiting for integration is paused; remove work labels, and reclaim only when
-integration/review actually starts. Do not remove another active owner's labels.
-The guide's issue state is authoritative; labels named done/closed do not close an issue.
-Priority is assessed by impact and urgency, not automatically by issue type. Host/user
-constraints such as a child-priority ceiling or a port priority remain applicable.
-Local dashboard display settings are not remotely discoverable workflow permissions.
+The guide is the home of label, priority and state rules. Orchestra additions: a worker
+waiting for integration is paused (work labels removed until integration/review starts);
+host/user constraints such as a child-priority ceiling still apply; and local dashboard
+settings are not remotely discoverable workflow permissions.
 
 The cited guide currently documents **GitHub**, not GitLab. Other issue trackers need
 an explicit host adapter for their API, states and label mapping; do not claim that

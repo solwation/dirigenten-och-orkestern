@@ -6,10 +6,9 @@ the established language of the files being edited.
 
 ## Follow the orchestra
 
-Read this file, [ORCHESTRA.md](ORCHESTRA.md) and
-[ISSUE-WORKFLOW.md](ISSUE-WORKFLOW.md) before making changes. Apply the orchestra
-to this repository's own maintenance, including a short delivery plan, deliberate
-resource use, scoped verification and one conductor review.
+Read this file first, then the core files the
+[read map](ORCHESTRA.md#read-map) names for the run, and apply the orchestra to this
+repository's own maintenance.
 
 The agent receiving the request acts as conductor and integration owner. It may
 implement directly and review its own diff for small cohesive changes. Use an
@@ -18,11 +17,11 @@ of two agents including the conductor. Use [WORKER.md](WORKER.md) for assignment
 Respect platform limits on delegation and model selection; disclose unavailable
 controls once rather than pretending they were used.
 
-An ordinary maintainer request starts a single scoped task. `/orkester`, with or
-without a scope, starts a queue session over this repository's open issues under
-[COORDINATION.md](COORDINATION.md#poll-idle-and-stop); a given scope still bounds the
-work. Run a single [bounded pass](COORDINATION.md#run-a-bounded-pass) without timers
-only when one is explicitly requested.
+An ordinary maintainer request starts a single scoped task. Overriding the core's
+empty-scope default, `/orkester`, with or without a scope, starts a queue session over
+this repository's open issues under [COORDINATION.md](COORDINATION.md#poll-idle-and-stop);
+a given scope still bounds the work. Run a single
+[bounded pass](COORDINATION.md#run-a-bounded-pass) only when one is explicitly requested.
 
 | Queue setting | Value |
 | --- | --- |
@@ -30,10 +29,8 @@ only when one is explicitly requested.
 | Idle watch | 60 minutes after the latest issue this session resolved (first idle entry if none) |
 | Intake hooks | None |
 
-The session is unattended: ask nothing in the chat. Post a question only the
-maintainer can answer as a comment on the affected issue with options and a
-recommendation, add the `user question` label and continue with other work; skip such
-issues until answered, and whoever resumes one removes the label.
+Questions only the maintainer can answer go to the affected issue with the
+`user question` label ([ask through the issue](COORDINATION.md#ask-through-the-issue)).
 
 ## Consume the orchestra from this checkout
 
@@ -80,35 +77,22 @@ Both hooks are required and owned by the conductor.
 | Check instructions | `verification`: documentation changes, before review | Check diff and consistency; run `python3 scripts/check-links.py` for relative links and anchors; walk through changed workflow scenarios and record results in the issue completion note |
 | Publish main | `delivery`: every completed requested change | Follow the publishing rules below; confirm the delivered commit is on remote main |
 
-No screenshot hook is configured for ordinary instruction changes. When a task has
-visual acceptance, add the relevant capture, inspection and sharing procedure to its
-plan as described below. No additional hooks or timers are enabled implicitly.
+No screenshot hook is configured; no other hooks or timers are enabled implicitly.
 
 ## Track actual work in GitHub
 
 Use the current authoritative Issueflow guide as resolved by ISSUE-WORKFLOW.md;
 record its revision in the issue or delivery note once per session.
 
-- Reuse a matching issue or create one before implementation, with the expected
-  result, acceptance criteria, short plan and integration owner.
-- Set exactly one canonical priority label: `priority: high`, `priority: medium`
-  or `priority: low`. Default to medium and briefly explain the priority.
-- Apply `in-progress` only while actively working. Keep ownership separate from
-  work status; never remove another active owner's labels.
-- Remove all recognized active-work labels when pausing, handing off or finishing.
-- Record the delivered revision, checks, limitations and remaining acceptance in
-  the issue before closing it. Close only after acceptance and verification pass
-  and the requested change has reached `origin/main`.
+Labels, priority and work status follow that guide. Project specifics: every issue
+names its integration owner in the plan, and closes only after its change has reached
+`origin/main`.
 
 ## Adapt follow-up to the change
 
-Apply ORCHESTRA.md's follow-up rules. Name its owner, evidence format, destination
-and timing in the short plan. Always post a completion comment on this repository's
-issue before closure, linking the delivered commit and relevant evidence. For a
-rendering change, capture and inspect the affected rendered state when visual
-acceptance requires it; for instructions, link the published text and record the
-consistency checks. Post images or artifact links when useful and supported by the
-authorized tools. Disclose missing evidence and keep unmet acceptance open.
+The core [follow-up](ORCHESTRA.md#follow-up) applies. For instructions the evidence is
+a link to the published text plus the recorded consistency checks; a rendering change
+with visual acceptance adds capture and inspection to its plan.
 
 ## Commit and push requested changes
 

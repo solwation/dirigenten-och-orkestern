@@ -19,27 +19,22 @@ Follow-up owner, evidence format, destination and timing:
 Heartbeat, question channel and required result evidence:
 ```
 
-Work only in your assigned checkout: never edit files or run state-changing git
-commands in another agent's checkout or the integration owner's checkout. Use only your own
-ports, servers and temporary/build directories, and confirm servers serve your
-checkout before collecting evidence. Start background servers as `cmd & pid=$!` and
-stop them with `kill "$pid"`; never kill processes by name pattern (`pkill -f`), since
-sibling workers run identical commands. Commit (and push when the host allows) at each
-meaningful milestone, so your progress survives the loss of the worker. Never send
-personal data from the user's environment (name, e-mail address, account identifiers)
-to external services in headers, URLs or request bodies; when a service asks for a
-contact, use the project's public identity. Work only the assigned scope. Preserve others' changes. When you start the first active
-sub-issue of a parent, also add the parent's work label if it is missing; leave its
-removal and the parent's closure to the conductor. Use existing helpers/harnesses;
-verify the agreed risks, then stop expanding the task. Tell the conductor promptly if
-new evidence changes the plan, a check fails or access is denied. Include a concise
-diagnosis and preserved patch/evidence when requesting escalation; do not blindly retry
-or raise model effort for an ordinary command/environment failure. Do not bypass denial.
-A helper returns its revision/patch, checks and limitations to the integration owner;
-it does not independently publish or close the issue.
+Follow the [isolation rules](ORCHESTRA.md#isolate-concurrent-agents): only your
+assigned checkout, ports, servers and temporary/build directories; confirm a server
+serves your checkout before collecting evidence. Start background servers as
+`cmd & pid=$!` and stop them with `kill "$pid"`. Commit (and push when the host allows)
+at each meaningful milestone, so progress survives the loss of the worker. Work only the
+assigned scope and preserve others' changes. When you start the first active sub-issue
+of a parent, also add the parent's missing work label; its removal and closure belong
+to the conductor. Use existing helpers/harnesses; verify the agreed risks, then stop
+expanding. Tell the conductor promptly when evidence changes the plan, a check fails or
+access is denied; to escalate, send a concise diagnosis and the preserved patch/evidence
+rather than retrying blindly or raising effort for an ordinary command failure. Never
+bypass a denial. A helper returns revision/patch, checks and limitations to the
+integration owner; it does not publish or close the issue.
 
-Before returning, stop every background process you started (servers, watchers, test
-runs) and release shared locks; the conductor stops a reported worker that still has
-background work instead of waiting for it. Return outcome, commit, checks/evidence,
-remaining acceptance and rough phase times if known. Wait for a new assignment after completion. Never autonomously continue a queue
-chain. Resume an existing interrupted checkout rather than duplicate finished work.
+Before returning, stop every background process you started and release shared locks;
+the conductor stops a reported worker that still has background work instead of waiting.
+Return outcome, commit, checks/evidence, remaining acceptance and rough phase times.
+Then wait for a new assignment; never continue a queue chain yourself. Resume an
+interrupted checkout rather than duplicate finished work.

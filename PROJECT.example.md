@@ -5,8 +5,8 @@ not executable code. Keep project details here, never in the shared instructions
 
 - Entry rules and relevant topic documents: <paths>.
 - User language: <language>. Explicit user scope: <argument or request>.
-- Mode: <single task or unattended queue>; an empty scope runs one bounded pass
-  without timers, and reading docs never starts the queue.
+- Mode: <single task or unattended queue>; empty scope: <bounded pass (default) or
+  queue session>.
 - Repositories and coordination issues: <owner/repo, status issue per repository>.
 - Issue workflow authority: shared ISSUE-WORKFLOW.md for GitHub; specify an adapter
   for other trackers. Local ancestor/port constraints: <policy>.
@@ -23,9 +23,8 @@ not executable code. Keep project details here, never in the shared instructions
   the core resource policy; document limits rather than assuming inherited effort is
   economical. No provider-specific identifier is required by the shared core.
 - Poll interval, idle watch, heartbeat and stale-work limits: <durations or disabled>.
-- Questions/blocked work: <channel and label lifecycle, e.g. an issue comment with
-  options and a recommendation plus a `user question` label>; unattended passes never ask
-  in the chat. Release rule in a pass: <e.g. only once no open issues remain/never>.
+- Questions/blocked work: <channel and label lifecycle, e.g. the `user question`
+  label>. Release rule in a pass: <e.g. only once no open issues remain/never>.
 - Intake hooks: <local procedure and triggers, or none>; they run while workers are
   busy, never delaying startable work. Credentials never go here.
 - Session review on queue drain: <default, extra areas to inspect, or disabled>.

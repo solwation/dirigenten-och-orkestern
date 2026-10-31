@@ -16,9 +16,9 @@ git subtree add --prefix=.orchestra/shared \
 
 Copy the project example to `.orchestra/project.md`, fill it in, then link the host's
 agent entry points to that policy and `.orchestra/shared/ORCHESTRA.md`. A slash command
-is only a thin adapter: read host policy, read core, pass user scope (an empty scope
-requests a bounded pass). Do not copy the
-core into a second prompt. Keep project configuration outside `.orchestra/shared`.
+is only a thin adapter: read host policy, read core, pass user scope (for an empty
+scope see the [read map](ORCHESTRA.md#read-map)). Do not copy the core into a second
+prompt. Keep project configuration outside `.orchestra/shared`.
 
 Record the release and resolved upstream commit in the host policy. The installed
 subtree stays pinned: [update discovery](#check-for-upstream-updates) proposes changes
@@ -45,7 +45,7 @@ The conductor checks for newer stable upstream versions when starting or resumin
 orchestra work. Reuse a successful check for the same upstream and installed pin for
 up to 24 hours; an explicit update request or a suspected orchestra bug forces a fresh
 check. Do this once per conductor, not per worker, issue or queue poll. A host may set
-a different cadence. Reading these instructions alone does not start a queue or watcher.
+a different cadence.
 
 Read the installed release and commit from the host policy. Discover stable releases
 and version tags from the configured official upstream; do not assume GitHub's latest

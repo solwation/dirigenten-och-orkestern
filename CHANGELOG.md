@@ -16,6 +16,14 @@
   compare the fetched guide with the bundled snapshot (at most two API calls) and open
   an issue to refresh the snapshot on a difference; snapshot provenance is now the file
   change commit `e22d6dc` (#35).
+- Restructure ORCHESTRA.md by phase (`planning` … `follow-up`, matching the hook phase
+  names) with a read map and a one-screen gate checklist at the top, and give each rule
+  one home that other files link to: unattended questions in COORDINATION.md *Ask
+  through the issue*, best-guess closure and isolation in ORCHESTRA.md, label rules in
+  the Issueflow guide, resume-first in ORCHESTRA.md. An empty scope is now described
+  once as a host setting with a bounded pass as default. The anchor
+  `#choose-the-smallest-useful-team` no longer holds the isolation list; link
+  `ORCHESTRA.md#isolate-concurrent-agents` instead (#28, #29).
 
 ## 0.6.1 — 2026-10-30
 
