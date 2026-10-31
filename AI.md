@@ -67,6 +67,7 @@ means the shared rules apply unchanged.
 | Required checks | `python3 scripts/check-links.py` and the maintainer checks below |
 | Installed version, upstream discovery | Not applicable: the root files are the installed core and the conductor already runs the newest revision (see above) |
 | Shell pitfall | `gh issue view` without `--json` may fail here with "GraphQL: Projects (classic) is being deprecated ... (repository.issue.projectCards)". Use `gh api repos/solwation/dirigenten-och-orkestern/issues/N` and `.../issues/N/comments` instead |
+| Attribution and licenses | Commit trailers and PR notes name the tool and model that did the work; never another provider. The repository license is [LICENSE.md](LICENSE.md); the Issueflow snapshot keeps its own [license](issueflow/LICENSE.md) |
 | Auto-close pitfall | A commit message with "Fixes #N" closes the issue on push, before the required completion comment. Write "(#N)" in commit messages and close manually after the comment |
 
 ## Project phase hooks
