@@ -48,19 +48,36 @@ session; record which revision a delivery followed when that matters. Consumers
 importing this repository by subtree receive the adapter under
 `.orchestra/shared/.claude/`, where hosts do not load it.
 
+## Host settings
+
+Each row answers a line of [PROJECT.example.md](PROJECT.example.md); "core default"
+means the shared rules apply unchanged.
+
+| Setting | Value |
+| --- | --- |
+| Repository and coordination | `solwation/dirigenten-och-orkestern` only; its open issues are the queue, there is no separate status issue. Cross-project boundaries: none; the core stays free of project details |
+| Excluded and session labels | Issues labelled `user question` are skipped until answered; no other exclusions. Session ID `<host>-<model>-<YYYYMMDD>[<suffix>]` (project short name omitted: one repository), label prefix `orkester: ` |
+| Claims, races, expiry, handover | Core default: the `orkester:` label claims an issue, never take over a visibly active one |
+| Capacity | At most two agents including the conductor; the conductor's own implementation counts as a slot and is allowed for small cohesive changes. No expensive shared verification (no browser/e2e/device runs) |
+| Isolation | No servers or ports. In Claude Code, give a worker its own checkout with the Agent tool's `isolation: "worktree"` |
+| Runtime/model selection | Claude Code's Agent tool chooses a model per worker (`sonnet`, `opus`, `haiku`, `fable` aliases). Reasoning effort follows the agent definition and is not set per call unless the maintainer asks. Choose per the resource rules in [ORCHESTRA.md](ORCHESTRA.md) and disclose when a control is unavailable; no price assumptions |
+| Heartbeat, stale work | Core default |
+| Session review on drain | Core default |
+| Workspace/server setup | None; Markdown only |
+| Required checks | `python3 scripts/check-links.py` and the maintainer checks below |
+| Installed version, upstream discovery | Not applicable: the root files are the installed core and the conductor already runs the newest revision (see above) |
+| Shell pitfall | `gh issue view` without `--json` may fail here with "GraphQL: Projects (classic) is being deprecated ... (repository.issue.projectCards)". Use `gh api repos/solwation/dirigenten-och-orkestern/issues/N` and `.../issues/N/comments` instead |
+| Auto-close pitfall | A commit message with "Fixes #N" closes the issue on push, before the required completion comment. Write "(#N)" in commit messages and close manually after the comment |
+
 ## Project phase hooks
 
-Apply ORCHESTRA.md's hook contract. All hooks below are required when their trigger
-applies and owned by the conductor; delegate only explicit scoped activities.
+The core phase gates apply as written; only project-specific activities are listed.
+Both hooks are required and owned by the conductor.
 
 | Hook | Phase and trigger/timing | Procedure and completion evidence |
 | --- | --- | --- |
-| Plan repository work | `planning`: every change, before implementation | Read the relevant policy/topic docs and create/reuse the issue with labels and a short plan under the GitHub rules below |
-| Preserve scope | `implementation`: every change, before verification | Inspect the patch for unrelated edits and preserve concurrent work |
 | Check instructions | `verification`: documentation changes, before review | Check diff and consistency; run `python3 scripts/check-links.py` for relative links and anchors; walk through changed workflow scenarios and record results in the issue completion note |
-| Review delivery | `review`: every change, before publishing | Read the combined diff and check acceptance against existing evidence; correct concrete defects |
 | Publish main | `delivery`: every completed requested change | Follow the publishing rules below; confirm the delivered commit is on remote main |
-| Complete issue | `follow-up`: every tracked change, before closure | Post the completion comment and relevant evidence under the rules below, remove active labels and close only if acceptance is met |
 
 No screenshot hook is configured for ordinary instruction changes. When a task has
 visual acceptance, add the relevant capture, inspection and sharing procedure to its

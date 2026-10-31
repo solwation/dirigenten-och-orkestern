@@ -6,6 +6,9 @@
   heading anchors, and a GitHub Action running it on push and pull request; the
   maintainer "Check instructions" hook points to it. Maintainer tooling only: no
   requirement for consuming projects (#34).
+- Align the maintainer host policy AI.md with PROJECT.example.md: add the missing settings
+  (model selection, capacity, claims, heartbeat, review), trim the hooks to project-specific
+  ones and document the `gh issue view` and "Fixes #N" pitfalls (#31).
 
 ## 0.6.1 — 2026-10-30
 
