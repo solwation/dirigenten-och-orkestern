@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.7.1 — 2026-11-02
+
 - Clarify screenshot requirements in completion comments: ORCHESTRA.md and AI.md now
   explicitly name UI/UX, styling and 2D/3D graphics/rendering under *Follow-up*, requiring
   screenshots or comparisons in the issue's completion comment (or an explicit statement
