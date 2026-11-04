@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Move the project icon to root `icon.svg` so dashboards can discover it; README
+  uses the same file (#44).
+
 ## 0.7.1 — 2026-11-02
 
 - Clarify screenshot requirements in completion comments: ORCHESTRA.md and AI.md now

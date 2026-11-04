@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/icon.svg" width="112" height="112" alt="A conductor on a podium, baton raised, in front of an orchestra seated in a semicircle">
+  <img src="icon.svg" width="112" height="112" alt="A conductor on a podium, baton raised, in front of an orchestra seated in a semicircle">
 </p>
 
 # Dirigenten och orkestern
