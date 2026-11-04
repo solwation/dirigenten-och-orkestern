@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.8.0 — 2026-11-04
+
 - Add the integration-ready handoff and integration queue: finished work retains its
   integration owner and evidence without active time or a worker slot. Align core,
   worker briefs, parent/PR handling, examples and maintainer policy with the canonical
