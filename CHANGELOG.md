@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Add the integration-ready handoff and integration queue: finished work retains its
+  integration owner and evidence without active time or a worker slot. Align core,
+  worker briefs, parent/PR handling, examples and maintainer policy with the canonical
+  Issueflow guide; refresh its exact snapshot/provenance to `0e712c3` and document
+  adoption from earlier releases (#43).
+
 - Move the project icon to root `icon.svg` so dashboards can discover it; README
   uses the same file (#44).
 

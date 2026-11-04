@@ -64,11 +64,13 @@ flowchart TD
    claims it and starts up to your configured number of workers in parallel.
 3. While they work, the conductor runs your intake hooks, for example turning incoming
    reports into new issues.
-4. Each worker plans briefly, implements, runs the checks that matter and hands back.
+4. Each worker plans briefly, implements and runs the checks that matter. A finished
+   handoff uses `integration-ready`: the issue stays in In progress with its integration
+   owner while waiting, and the worker slot is freed.
 5. The conductor reviews the combined diff and evidence, delivers it (a push to main,
    or a pull request if your project merges through PRs), posts the result on the
-   issue and closes it once the change is on main, then gives the free worker the next
-   issue.
+   issue and closes it once the change is on main. Available workers can take the next
+   independent issue while a finished handoff waits.
 6. When the queue is empty, the conductor reviews everything delivered in the session
    (with workers for parts if that helps); findings become new issues and the loop
    continues. With nothing left, an optional idle watch waits for new issues; a runtime
