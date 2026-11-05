@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.8.2 — 2026-11-05
+
 - Shorten repeated handoff, ownership, worker and follow-up instructions with links
   to their authoritative sections. Distinguish session reading from phase reading;
   preserve existing gates, anchors and fresh queue checks (#47).
