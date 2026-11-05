@@ -40,6 +40,8 @@ its current documentation. Copyable entry snippet:
 This repository uses the orchestra workflow.
 Project policy: read `.orchestra/project.md` first.
 Workflow core: follow `.orchestra/shared/ORCHESTRA.md`, starting from its read map.
+Apply its chat intake rule to change requests, including when no run is active or
+the previous idle watch has ended.
 ```
 
 The shared tree's own `.claude/commands/` is not read by any client once installed
