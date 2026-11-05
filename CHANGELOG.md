@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Shorten repeated handoff, ownership, worker and follow-up instructions with links
+  to their authoritative sections. Distinguish session reading from phase reading;
+  preserve existing gates, anchors and fresh queue checks (#47).
+
 - Fix Markdown link checking for nested code fences, closing fences with info text
   and heading anchors that collide with generated suffixes. Add focused standard
   library regression tests to CI (#46).
