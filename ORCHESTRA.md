@@ -252,6 +252,11 @@ acceptance, integration errors and scope creep. No routine reruns of green check
 no second review agent; request one bounded correction per concrete defect, not for
 wording preferences.
 
+If a material review finding exposes a cause that could recur in similar assignments,
+update the brief, applicable topic instructions or required checks before starting
+more assignments with that risk. Notify owners of affected work already in progress;
+independent work continues. Apply this throughout the run, not only to early deliveries.
+
 ## Delivery
 
 Follow host release rules, preserve concurrent work, and never route a denied action

@@ -5,6 +5,10 @@
 - Keep verification checkouts and relevant inputs stable during a run; invalidate
   and repeat only checks affected by an overlapping edit (#49, from field report #48).
 
+- Feed material review findings back into briefs, topic instructions or checks before
+  more assignments with the same risk start; notify affected active owners and let
+  independent work continue throughout the run (#50, from field report #48).
+
 ## 0.8.2 — 2026-11-05
 
 - Shorten repeated handoff, ownership, worker and follow-up instructions with links
