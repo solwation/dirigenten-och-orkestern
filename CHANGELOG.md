@@ -9,6 +9,10 @@
   more assignments with the same risk start; notify affected active owners and let
   independent work continue throughout the run (#50, from field report #48).
 
+- Make worker test setup explicit: verify the assigned server serves the right
+  checkout before server-backed checks, and take the shared verification turn and
+  any host-required lock before expensive runs (#52, from field report #48).
+
 ## 0.8.2 — 2026-11-05
 
 - Shorten repeated handoff, ownership, worker and follow-up instructions with links
