@@ -17,6 +17,10 @@
   sections; briefs name all matching entries without replacing required core
   reading or adding a new brief block (#51, from field report #48).
 
+- Give the user a ready-to-paste field report and submission link when the runtime
+  cannot publish upstream; state that it remains unpublished and respect denied
+  access (#53, from field report #48).
+
 ## 0.8.2 — 2026-11-05
 
 - Shorten repeated handoff, ownership, worker and follow-up instructions with links
