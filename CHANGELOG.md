@@ -13,6 +13,10 @@
   checkout before server-backed checks, and take the shared verification turn and
   any host-required lock before expensive runs (#52, from field report #48).
 
+- Offer an optional host context map from labels, paths or topics to document
+  sections; briefs name all matching entries without replacing required core
+  reading or adding a new brief block (#51, from field report #48).
+
 ## 0.8.2 — 2026-11-05
 
 - Shorten repeated handoff, ownership, worker and follow-up instructions with links

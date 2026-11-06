@@ -22,7 +22,7 @@ Assignment block, at most about eight lines per worker:
 ```text
 Session block: <path/link>; batch brief: <path> (if any)
 Issue/repository and acceptance:
-Scope, likely files, boundaries, short plan/helper output (if any):
+Scope, likely files, boundaries, applicable context-map entries, short plan/helper output (if any):
 Checkout/base revision, isolated ports/server config, evidence directory:
 Other workers' file responsibilities and insertion anchors:
 Capability/effort choice, reason, stop/reassessment condition:

@@ -21,6 +21,11 @@ and any linked procedure needed for that work; reuse unchanged sections already 
 The checklist routes phase reading, not extra documents. This reuse never replaces
 fresh queue fetches, claim checks or recovery required below and in COORDINATION.md.
 
+A host may optionally map labels, paths or topics to relevant document sections.
+Apply all matching entries and name them in the brief; search long references for
+relevant sections rather than reading them in full by default. This context map
+supplements the required core reading and never waives applicable rules.
+
 Reading these files alone never starts an unattended run. A chat request for changes
 starts the workflow under [chat intake](#turn-chat-requests-into-work). An empty scope,
 such as a bare `/orkester`, lets the conductor choose the work: by default one
