@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Remove worker checkouts once their work is proven on main: the integration owner
+  at follow-up, and the session review and startup across the host's whole worktree
+  root. Add `scripts/prune-worktrees.sh` (dry run by default, archives unproven work,
+  never removes a checkout whose issue is open) and a host setting for the worktree
+  root and archive (#54).
+
 ## 0.9.0 — 2026-11-06
 
 - Keep verification checkouts and relevant inputs stable during a run; invalidate

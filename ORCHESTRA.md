@@ -42,7 +42,7 @@ session instead.
 | `verification` | [Agreed risk-based checks](#verification) pass on the delivered revision |
 | `review` | [Handoff](#handoff-for-integration) retains owner/evidence while waiting; [conductor reads the combined diff](#review) against acceptance |
 | `delivery` | [Published under host rules](#delivery); delivered revision verified |
-| `follow-up` | [Completion comment](#follow-up) with evidence before closure; active labels removed |
+| `follow-up` | [Completion comment](#follow-up) with evidence before closure; active labels removed; [checkout removed](#clean-up-checkouts) |
 
 ## Start and resume
 
@@ -80,9 +80,10 @@ upgrades are optional. Discovery never imports updates or enables unattended wor
 ### Resume unfinished work first
 
 At startup/resume of any run, before selecting new work, look in the checkouts this run
-will use for uncommitted changes, commits not on the remote main branch, leftover
-worktrees and branches, and claims or active labels left by an earlier session. Fetch,
-then decide each item from evidence, not age:
+will use, and in the host's worktree root for checkouts earlier sessions left behind,
+for uncommitted changes, commits not on the remote main branch, leftover worktrees and
+branches, and claims or active labels left by an earlier session. Fetch, then decide
+each item from evidence, not age:
 
 - **Already on main** (another session may have delivered it): `git diff origin/main --
   <paths>` is empty, `git cherry origin/main <branch>` marks every commit `-`, or the
@@ -96,6 +97,7 @@ then decide each item from evidence, not age:
 
 Discard only on proof; when in doubt, preserve it as a commit on a private branch.
 Note what was resumed or discarded. This brief check does not replace the queue fetch.
+Leftover checkouts from earlier sessions follow [clean up checkouts](#clean-up-checkouts).
 
 ## Planning
 
@@ -197,7 +199,9 @@ Make the scoped change; unrelated defects become separate issues.
   before reporting.
 - Never send personal data from the user's environment (name, e-mail, account IDs) to
   external services; use the project's public identity.
-- Remove a worktree only after its work is integrated or preserved.
+- Remove a worktree only after its work is integrated or preserved: the integration
+  owner removes it during [follow-up](#follow-up), and the session review and the next
+  startup prune what that missed ([clean up checkouts](#clean-up-checkouts)).
 
 ## Verification
 
@@ -296,7 +300,31 @@ in an authorized, accessible destination:
 Run required post-publication checks before claiming them. Then release labels under
 [Issueflow](ISSUE-WORKFLOW.md); leave unmet acceptance open with next action and owner.
 Schedule later monitoring only when authorized. Reuse the result note; follow-up is
-no separate reporting phase.
+no separate reporting phase. Last, remove the issue's checkout
+([clean up checkouts](#clean-up-checkouts)).
+
+### Clean up checkouts
+
+Checkouts are per issue and per worker, so they accumulate unless each phase that ends
+one also removes it. Once the issue's change is verified on the remote main branch and
+the issue is closed, the integration owner removes the issue's worktree or clone and
+its work branch as the last follow-up step; a waiting handoff keeps its checkout
+until integrated. Collect evidence before removal.
+
+Proof that nothing is lost is the same as when [resuming](#resume-unfinished-work-first):
+the working tree is clean and every local commit is on the remote main branch, or its
+patch is (`git cherry`), or the closed issue records a delivered revision that contains
+the change. Anything else is preserved first, as a bundle or a private branch, and the
+note says where. A checkout whose issue is still open is never removed by someone else.
+
+The [session review](COORDINATION.md#review-the-session) and the next startup prune
+what individual follow-ups missed across the host's whole worktree root, not only the
+current session's directories. [`scripts/prune-worktrees.sh`](scripts/prune-worktrees.sh)
+classifies every checkout under given roots as integrated, active, unproven or protected
+and removes only the integrated ones; it is a dry run unless `--apply` is given,
+`--archive <dir>` preserves unproven work as bundle and patch before removal, and
+`--protect` keeps named clones. The host policy names the worktree root and the archive
+location.
 
 ### Close after a best-guess fix
 
