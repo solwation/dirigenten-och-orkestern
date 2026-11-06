@@ -213,8 +213,11 @@ one measured ([examples](#examples)). Hard contracts and explicit user gates are
 device or the user can supply is no closing gate by default
 ([best-guess closure](#close-after-a-best-guess-fix)).
 
-Bind results to revision, inputs, environment and quality mode; after an unrelated
-rebase rerun only checks touched by changed code, inputs, conflicts or a concrete risk.
+Bind results to revision, inputs, environment and quality mode. Keep the checkout and
+relevant inputs stable while verification runs against them; continue editing in a
+separate checkout if needed. If an edit overlaps a run, invalidate affected results
+and rerun the affected checks against a stable revision. After an unrelated rebase,
+rerun only checks touched by changed code, inputs, conflicts or a concrete risk.
 Correct a faulty evidence setup and repeat only that check. A guessed historical
 threshold alone does not justify optimization. Stop once agreed checks pass; when
 verification passes its [time limit](#default-time-limits), reassess and pick the
