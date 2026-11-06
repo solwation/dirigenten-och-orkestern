@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.9.0 — 2026-11-06
+
 - Keep verification checkouts and relevant inputs stable during a run; invalidate
   and repeat only checks affected by an overlapping edit (#49, from field report #48).
 
