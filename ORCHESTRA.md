@@ -60,6 +60,16 @@ mode; a scoped request does not silently expand to the whole backlog or enable t
 If a run is already active, add the request to that conductor's work and apply the
 normal selection and ownership rules; do not start a competing run or reset its idle
 deadline just because a message arrived. Reuse issues and preserved work on resume.
+Assess each message that arrives during the run at once. A change request or bug
+report gets its issue (created or reused) before the current task continues; it then
+joins selection or goes to a free slot under capacity. A clarification of work in
+progress updates that work's issue instead.
+
+An *operational action* changes no code or configuration: reloading, restarting an
+existing service, a status check or a snapshot. It needs no issue of its own, but
+relieving a reported bug with one does not resolve it: the report still gets an issue
+recording the diagnosis and the relief applied. The hand-back says which messages
+became which issues and which only led to operational actions.
 
 Respect explicit limits such as "do not start the orchestra", "only create issues"
 or "discuss only". Record requested changes as issues when allowed, keeping any

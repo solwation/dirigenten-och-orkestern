@@ -14,6 +14,12 @@
   with a content comparison before resuming it as unique (#55, from
   solwation-on-twitch).
 
+- Turn messages that arrive during a run into issues before the current task
+  continues, update the existing issue for a clarification, and separate operational
+  actions (reload, restart, status check, snapshot) from changes: they need no issue
+  of their own, but a bug report they relieve still gets one; the hand-back maps
+  messages to issues (#56, from solwation-on-twitch).
+
 ## 0.9.0 — 2026-11-06
 
 - Keep verification checkouts and relevant inputs stable during a run; invalidate
