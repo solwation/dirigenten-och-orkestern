@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.11.1 — 2026-11-08
+
 - `scripts/prune-worktrees.sh` no longer reports the current directory as a checkout
   when a root holds none: an empty candidate list stays empty, and no path runs
   `git -C ""`, `du ""` or `rm -rf ""`. Add `scripts/test_prune_worktrees.py`, run by
