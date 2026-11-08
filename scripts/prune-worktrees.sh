@@ -86,12 +86,15 @@ for r in "${roots[@]}"; do
   r=$(realpath -m "$r"); [ -d "$r" ] || continue
   while IFS= read -r g; do candidates+=("$(dirname "$g")"); done < <(find "$r" -mindepth 1 -maxdepth 3 -name .git \( -type d -o -type f \) 2>/dev/null; [ -e "$r/.git" ] && echo "$r/.git")
 done
-# unique, sorted
-mapfile -t candidates < <(printf '%s\n' "${candidates[@]}" | awk '!seen[$0]++' | sort)
+# unique, sorted, never an empty path: `git -C ""` would act on the current directory
+if [ ${#candidates[@]} -gt 0 ]; then
+  mapfile -t candidates < <(printf '%s\n' "${candidates[@]}" | awk 'NF && !seen[$0]++' | sort)
+fi
 
 # main repositories that back worktrees, and clones whose object store another clone
 # borrows (git clone --reference/--shared), are protected: removing them breaks the rest
 for d in "${candidates[@]}"; do
+  [ -n "$d" ] || continue
   common=$(git -C "$d" rev-parse --path-format=absolute --git-common-dir 2>/dev/null) || continue
   [ -f "$d/.git" ] && { main=$(dirname "$common"); checked_protect[$main]=1; }
   alt="$common/objects/info/alternates"
@@ -103,6 +106,7 @@ printf '%-10s %6s  %-60s %-30s %5s %5s %4s  %s\n' CLASS MB DIR BRANCH DIRTY AHEA
 total_mb=0; freed_mb=0; n_int=0; n_act=0; n_unp=0; n_prot=0; n_removed=0
 
 for d in "${candidates[@]}"; do
+  [ -n "$d" ] || continue
   name=$(basename "$d"); parent=$(basename "$(dirname "$d")")
   short=$(printf '%s' "$d" | sed "s#^$HOME#~#")
   mb=$(du -xsm "$d" 2>/dev/null | cut -f1); total_mb=$((total_mb + mb))
