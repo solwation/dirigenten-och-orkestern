@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Keep a worker's fresh checkout from being pruned before its first commit: whoever
+  creates a writing checkout writes an `orchestra-claim` marker (issue and session) in
+  its git directory, and `scripts/prune-worktrees.sh` classifies a marked checkout as
+  active unless its issue is shown closed, and a checkout without commits of its own as
+  active while its HEAD changed within `--min-age` (default 120 minutes). Both work
+  without a GitHub remote or `gh` (#57, from field report solwation/lunden-3d-apartment#1890).
+
 ## 0.10.0 — 2026-11-08
 
 - Remove worker checkouts once their work is proven on main: the integration owner
