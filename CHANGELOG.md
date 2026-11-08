@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.11.0 — 2026-11-08
+
 - Keep a worker's fresh checkout from being pruned before its first commit: whoever
   creates a writing checkout writes an `orchestra-claim` marker (issue and session) in
   its git directory, and `scripts/prune-worktrees.sh` classifies a marked checkout as
