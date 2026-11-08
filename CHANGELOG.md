@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.10.0 — 2026-11-08
+
 - Remove worker checkouts once their work is proven on main: the integration owner
   at follow-up, and the session review and startup across the host's whole worktree
   root. Add `scripts/prune-worktrees.sh` (dry run by default, archives unproven work,
