@@ -8,6 +8,12 @@
   never removes a checkout whose issue is open) and a host setting for the worktree
   root and archive (#54).
 
+- Start from current main: fast-forward a clean integration checkout to the remote
+  main branch before reading or planning, treat a dirty or diverged one as leftover
+  work, compare leftovers only against remote main and confirm a `git cherry` `+`
+  with a content comparison before resuming it as unique (#55, from
+  solwation-on-twitch).
+
 ## 0.9.0 — 2026-11-06
 
 - Keep verification checkouts and relevant inputs stable during a run; invalidate

@@ -36,7 +36,7 @@ session instead.
 
 | Phase | Gate |
 | --- | --- |
-| Start | [Update check](#check-the-installed-workflow) per host settings; [resume or discard unfinished work](#resume-unfinished-work-first) |
+| Start | [Update check](#check-the-installed-workflow) per host settings; integration checkout [on current remote main](#resume-unfinished-work-first); [resume or discard unfinished work](#resume-unfinished-work-first) |
 | `planning` | [Short plan](#start-with-a-short-delivery-plan); issue claimed under Issueflow; [resources](#spend-resources-deliberately) and [team](#choose-the-smallest-useful-team) chosen; [hooks](#apply-project-hooks-at-each-phase) resolved |
 | `implementation` | Own checkout under the [isolation rules](#isolate-concurrent-agents); assigned scope only |
 | `verification` | [Agreed risk-based checks](#verification) pass on the delivered revision |
@@ -79,11 +79,18 @@ upgrades are optional. Discovery never imports updates or enables unattended wor
 
 ### Resume unfinished work first
 
-At startup/resume of any run, before selecting new work, look in the checkouts this run
-will use, and in the host's worktree root for checkouts earlier sessions left behind,
-for uncommitted changes, commits not on the remote main branch, leftover worktrees and
-branches, and claims or active labels left by an earlier session. Fetch, then decide
-each item from evidence, not age:
+At startup/resume of any run, before reading code or selecting new work, fetch and
+fast-forward the integration checkout to the remote main branch when it is clean. A
+dirty or diverged integration checkout is never overwritten: treat its changes and
+commits as leftover work below. Read, plan and create new worktrees from the remote
+main branch, never from a stale local main.
+
+Then look in the checkouts this run will use, and in the host's worktree root for
+checkouts earlier sessions left behind (`git worktree list`, local branches, branches
+without a remote), for uncommitted changes, commits not on the remote main branch,
+and claims or active labels left by an earlier session. Compare only against the
+remote main branch (`origin/main`), never against local main, and decide each item
+from evidence, not age:
 
 - **Already on main** (another session may have delivered it): `git diff origin/main --
   <paths>` is empty, `git cherry origin/main <branch>` marks every commit `-`, or the
@@ -91,12 +98,16 @@ each item from evidence, not age:
   worktree, branch and stale claim; if only part landed, resume the missing part.
 - **Not on main**: identify its issue (branch, commit message, claim, matching issue),
   claim it and finish it as a normal delivery before new selection; useful work without
-  an issue goes under a matching or new one.
+  an issue goes under a matching or new one. A `+` from `git cherry` alone does not
+  prove this: the same patch in a different context, or a later reimplementation, also
+  shows `+`. Confirm with a content comparison against `origin/main` and a search of
+  its history for the commit message or issue reference first.
 - **Owned by a visibly active agent**: not leftover; never touch it
   ([takeover](COORDINATION.md#coordinate-and-recover)).
 
 Discard only on proof; when in doubt, preserve it as a commit on a private branch.
-Note what was resumed or discarded. This brief check does not replace the queue fetch.
+Note briefly what was fast-forwarded, resumed or discarded. This brief check does not
+replace the queue fetch.
 Leftover checkouts from earlier sessions follow [clean up checkouts](#clean-up-checkouts).
 
 ## Planning
