@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add GitHub Pages landing site in `docs/index.html` with responsive presentation,
+  architecture diagrams, value comparisons, and quickstart guides; streamline
+  `README.md` to be concise and link directly to the website (#59).
+
 ## 0.11.1 — 2026-11-08
 
 - `scripts/prune-worktrees.sh` no longer reports the current directory as a checkout
