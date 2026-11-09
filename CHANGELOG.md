@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Prefer directly visible images (attached or embedded via fully-qualified URLs)
+  in completion comments for visual acceptance, allowing immediate confirmation
+  in GitHub and project dashboards (#61).
+
 - Explicitly require the conductor to resume active orchestration in the same
   turn after answering user questions, providing status, or executing operational
   actions mid-run, rather than pausing or ending the session (#60).

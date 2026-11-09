@@ -319,10 +319,13 @@ revision, checks, evidence links/attachments, limitations and remaining acceptan
 in an authorized, accessible destination:
 
 - UI/UX, styling, 2D/3D graphics or rendering: screenshots or rendered comparisons,
-  with revision and environment, embedded or linked as accessible artifacts. Include
-  before/after when useful; images supplement functional checks. If capture or hosting
-  is unavailable, state the limitation and reason. Inspect images, expose no private
-  data and never claim an upload that did not happen.
+  with revision and environment, embedded directly in the completion comment. Directly
+  visible images are preferred (attached to the issue/comment or embedded via a
+  fully-qualified public URL, `![alt](url)`) so maintainers and project dashboards can
+  confirm visual acceptance directly from the comment. Include before/after when
+  useful; images supplement functional checks. If capture or hosting is unavailable,
+  state the limitation and reason. Inspect images, expose no private data and never
+  claim an upload that did not happen.
 - Behavior: test or reproduction result.
 - Documentation: published text link and recorded checks.
 - Deployment: deployed revision and post-deployment check.
