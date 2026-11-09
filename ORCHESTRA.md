@@ -77,8 +77,12 @@ explicitly deferred work paused and unclaimed until the user authorizes executio
 do not let queue selection bypass that limit. A prior explicit stop still applies
 unless the user authorizes resumption. Answer questions, status requests and discussion
 without inventing change tasks; a request for changes to these instructions is itself
-work under this rule. Chat intake does not grant publication permissions beyond the
-host/user rules or install a background listener.
+work under this rule. Answering the user or performing an operational action does not
+pause, drain or exit an active orchestra run: handle the user's interjection and then
+immediately resume the run's work in the same turn (monitoring active workers,
+dispatching startable issues, integrating handoffs, or continuing the idle watch)
+without waiting for another command. Chat intake does not grant publication permissions
+beyond the host/user rules or install a background listener.
 
 ### Check the installed workflow
 

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Explicitly require the conductor to resume active orchestration in the same
+  turn after answering user questions, providing status, or executing operational
+  actions mid-run, rather than pausing or ending the session (#60).
+
 - Add GitHub Pages landing site in `docs/index.html` with responsive presentation,
   architecture diagrams, value comparisons, and quickstart guides; streamline
   `README.md` to be concise and link directly to the website (#59).
