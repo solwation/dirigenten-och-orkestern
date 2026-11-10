@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.11.2 — 2026-11-10
+
 - Prefer directly visible images (attached or embedded via fully-qualified URLs)
   in completion comments for visual acceptance, allowing immediate confirmation
   in GitHub and project dashboards (#61).
