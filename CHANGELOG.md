@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.12.0 — 2026-11-11
+
 - Recommend an optional multi-perspective expert panel review hook when work is
   complete (identifying expert roles, independent analysis, discussion/synthesis,
   and formulating findings as new backlog issues) in `PROJECT.example.md`,
