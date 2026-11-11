@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.11.4 — 2026-11-11
+
 - Clarify image embedding compatibility for `github-dashboard` (HTTPS only, Markdown
   syntax instead of HTML `<img>` tags, standalone paragraph for responsive block
   styling) in `PROJECT.example.md` and `ORCHESTRA.md` (#63).
