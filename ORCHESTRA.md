@@ -321,11 +321,13 @@ in an authorized, accessible destination:
 - UI/UX, styling, 2D/3D graphics or rendering: screenshots or rendered comparisons,
   with revision and environment, embedded directly in the completion comment. Directly
   visible images are preferred (attached to the issue/comment or embedded via a
-  fully-qualified public URL, `![alt](url)`) so maintainers and project dashboards can
-  confirm visual acceptance directly from the comment. See
+  fully-qualified public HTTPS URL, `![alt](url)`, in a standalone paragraph) so
+  maintainers and project dashboards (`github-dashboard`) can confirm visual acceptance
+  directly from the comment. Never use raw HTML `<img>` tags (escaped by dashboards for
+  security). See
   [PROJECT.example.md](PROJECT.example.md#image-hosting-and-embedding-patterns) for
   recommended hosting patterns (such as orphan asset branches, release assets, or public
-  doc sites) that avoid repository and subtree bloat. Include before/after when
+  doc sites) and dashboard compatibility rules. Include before/after when
   useful; images supplement functional checks. If capture or hosting is unavailable,
   state the limitation and reason. Inspect images, expose no private data and never
   claim an upload that did not happen.

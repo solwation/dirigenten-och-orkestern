@@ -104,6 +104,15 @@ Visual evidence in completion comments and issues should be directly visible via
 4. **Project upload script**:
    Provide a helper script (e.g. `scripts/upload-asset.sh`) that uploads an image to the project's chosen bucket/storage (S3, R2, or a dedicated storage service) and outputs the formatted `![alt](url)` markdown snippet directly to standard output for the agent or conductor to paste into the comment.
 
+#### Dashboard compatibility (`solwation/github-dashboard`)
+
+When visual evidence is reviewed in [solwation/github-dashboard](https://github.com/solwation/github-dashboard), adhere to these formatting rules:
+
+- **Markdown image syntax only:** Use `![alt](url)` or `[![alt](img-url)](link-url)`. Never use raw HTML `<img>` tags: `github-dashboard` disables HTML parsing (`html: false`) to safeguard against XSS, rendering raw tags as escaped text.
+- **HTTPS required:** Always use `https://` URLs. The dashboard enforces a strict Content Security Policy (`img-src 'self' https: data: blob:`) that blocks unencrypted `http://` resources.
+- **Standalone paragraph for responsive layout:** Place the image embed in its own paragraph (separated by blank lines above and below). `github-dashboard` detects standalone image blocks (`.markdown-image-block`) and formats them responsively beside the text on wider screens instead of breaking the reading line.
+- **GitHub blob URLs:** GitHub blob URLs (`https://github.com/<owner>/<repo>/blob/...`) are automatically rewritten to raw URLs (`?raw=true`) by `github-dashboard`, but using `https://raw.githubusercontent.com/...` or an explicit `?raw=true` parameter ensures compatibility with all Markdown readers.
+
 For optional activities, mark them optional explicitly and report a failure or skip.
 An unavailable required tool does not silently make an activity optional. Existing
 queue intake hooks keep their own triggers and schedule under COORDINATION.md.
