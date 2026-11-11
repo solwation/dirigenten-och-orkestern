@@ -322,7 +322,10 @@ in an authorized, accessible destination:
   with revision and environment, embedded directly in the completion comment. Directly
   visible images are preferred (attached to the issue/comment or embedded via a
   fully-qualified public URL, `![alt](url)`) so maintainers and project dashboards can
-  confirm visual acceptance directly from the comment. Include before/after when
+  confirm visual acceptance directly from the comment. See
+  [PROJECT.example.md](PROJECT.example.md#image-hosting-and-embedding-patterns) for
+  recommended hosting patterns (such as orphan asset branches, release assets, or public
+  doc sites) that avoid repository and subtree bloat. Include before/after when
   useful; images supplement functional checks. If capture or hosting is unavailable,
   state the limitation and reason. Inspect images, expose no private data and never
   claim an upload that did not happen.

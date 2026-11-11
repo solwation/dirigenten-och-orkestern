@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Recommend practical patterns for hosting and embedding images in completion
+  comments (dedicated asset branches, release assets, GitHub Pages, or upload
+  scripts) in `PROJECT.example.md` and `ORCHESTRA.md` to prevent git subtree bloat
+  while keeping visual evidence directly visible (#62).
+
 ## 0.11.2 — 2026-11-10
 
 - Prefer directly visible images (attached or embedded via fully-qualified URLs)

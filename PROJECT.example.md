@@ -83,6 +83,27 @@ in its own guide.
 | Inspect UI | `review`: UI/UX or graphics changes, before approving delivery | Inspect captured images against acceptance and any reference images | Conductor | Required when triggered: review outcome recorded; defects corrected and affected images refreshed |
 | Share UI result | `follow-up`: UI/UX or graphics changes, before issue closure | Follow the project's upload guide; attach or embed reviewed images with fully-qualified URLs in the completion comment | Conductor | Required when triggered: directly visible image evidence for the delivered revision, or report the capture limitation |
 
+### Image hosting and embedding patterns
+
+Visual evidence in completion comments and issues should be directly visible via Markdown image syntax (`![description](url)`), but should avoid bloating the main branch git history or consumers importing the project via `git subtree`. Recommended patterns for project upload guides:
+
+1. **Dedicated assets or orphan branch**:
+   Maintain an independent branch (e.g. `assets` or `screenshots`) created without parent history (`git checkout --orphan assets`). Push images there and link via raw URLs:
+   `https://raw.githubusercontent.com/<owner>/<repo>/assets/<path>/<image>.png`
+   This keeps binary files out of `main` and consumer subtree clones.
+
+2. **GitHub Release or tag assets**:
+   Attach visual artifacts to a dedicated release or tag (e.g. `verification-assets`) using the GitHub CLI:
+   `gh release upload <tag> <path>/<image>.png`
+   Embed using the release asset URL:
+   `https://github.com/<owner>/<repo>/releases/download/<tag>/<image>.png`
+
+3. **GitHub Pages or static doc sites**:
+   If the repository publishes GitHub Pages (e.g. from `docs/` or a `gh-pages` branch), store verification images in the published documentation assets directory and reference the public URL (`https://<owner>.github.io/<repo>/...`).
+
+4. **Project upload script**:
+   Provide a helper script (e.g. `scripts/upload-asset.sh`) that uploads an image to the project's chosen bucket/storage (S3, R2, or a dedicated storage service) and outputs the formatted `![alt](url)` markdown snippet directly to standard output for the agent or conductor to paste into the comment.
+
 For optional activities, mark them optional explicitly and report a failure or skip.
 An unavailable required tool does not silently make an activity optional. Existing
 queue intake hooks keep their own triggers and schedule under COORDINATION.md.
