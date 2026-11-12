@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Clarify image rules and dashboard compatibility for private repositories in
+  `PROJECT.example.md`: revision-pinned blob or raw URLs are the correct format
+  but require the reader's dashboard token to have `Contents: Read-only` permission
+  (a *View on GitHub* placeholder indicates missing permissions rather than an
+  incorrect link format), and note that public hosting alternatives apply only
+  when host policy permits publication (#65).
+
 ## 0.12.0 — 2026-11-11
 
 - Recommend an optional multi-perspective expert panel review hook when work is
