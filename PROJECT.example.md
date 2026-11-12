@@ -7,7 +7,10 @@ not executable code. Keep project details here, never in the shared instructions
   Optional context map: <document sections per label, path or topic; omit if unused>.
 - User language: <language>. Explicit user scope: <argument or request>.
 - Mode: <single task or unattended queue>; empty scope: <bounded pass (default) or
-  queue session>.
+  queue session>. Issue-intake mode for chat changes and agent-created/added work
+  issues: <scoped task (default) or queue session with this host's configured timers>.
+  Preserve explicit scope/deferral and reuse an active conductor; issue registration
+  alone is not completion. No external agent-starting daemon is implied.
 - Repositories and coordination issues: <owner/repo, status issue per repository>.
 - Issue workflow authority: shared ISSUE-WORKFLOW.md for GitHub; specify an adapter
   for other trackers. Local ancestor/port constraints: <policy>.

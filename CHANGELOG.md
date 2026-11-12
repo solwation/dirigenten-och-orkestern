@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Clarify that agent-created or added work issues start/resume the orchestra under
+  the host's documented intake run mode, including after an idle watch; reuse the
+  active conductor, respect explicit deferral and do not interpret "create an issue"
+  alone as a request to stop after registration (#67).
+
 ## 0.13.0 — 2026-11-12
 
 - Add guidelines for continuous capacity evaluation and dynamic worker scaling
