@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.12.1 — 2026-11-12
+
 - Clarify image rules and dashboard compatibility for private repositories in
   `PROJECT.example.md`: revision-pinned blob or raw URLs are the correct format
   but require the reader's dashboard token to have `Contents: Read-only` permission
