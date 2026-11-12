@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.13.0 — 2026-11-12
+
 - Add guidelines for continuous capacity evaluation and dynamic worker scaling
   in `ORCHESTRA.md`, `COORDINATION.md`, and `PROJECT.example.md`: treat host
   capacity as an upper bound rather than a static quota, scale down on rate
