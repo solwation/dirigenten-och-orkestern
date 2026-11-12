@@ -196,7 +196,22 @@ preparation saves total work or shortens the critical path, never just to fill i
 capacity; state its output and files. Helpers and reviewers count against the worker
 cap; workers do not spawn teams. Independent reads need no extra agent. Across issues,
 independent deliveries run concurrently up to capacity
-([coordination](COORDINATION.md#select-and-claim)).
+([coordination](COORDINATION.md#select-and-claim)). Treat host capacity as an upper
+bound rather than a fixed target to fill, and evaluate real capacity continuously
+between dispatches:
+
+- **Scale down** when warning signals appear: API rate limits or quota throttling
+  (HTTP 429), high local CPU or memory pressure, slow verification cycles, platform
+  worker spawn failures, or an accumulating integration queue (`integration-ready`
+  handoffs waiting for review). Throttle dispatch or pause new workers until pending
+  handoffs are integrated and resources recover.
+- **Scale up** cautiously towards the host ceiling only when: multiple independent,
+  high-priority issues are startable; recent runs and checkouts completed cleanly without
+  throttling; integration queue depth is low; and the conductor has verified headroom to
+  integrate incoming handoffs promptly.
+- **Respect integration throughput:** Never spawn more concurrent workers than the
+  conductor can integrate without backlog; concurrent work that outpaces integration
+  creates rebase churn, stale checkouts, and coordination drag.
 
 One integration owner combines and publishes each issue. A helper needs no child issue
 for tests, docs or review and verifies on the owner's exact revision. Keep coupled edits

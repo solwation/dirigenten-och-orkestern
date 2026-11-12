@@ -20,6 +20,8 @@ not executable code. Keep project details here, never in the shared instructions
 - Capacity: <concurrent active issue workers, includes helpers; integration-ready
   waits and parent summary labels use no slot>; whether the conductor's own
   implementation counts as a slot; direct conductor implementation: <allowed?>.
+  Optional dynamic capacity: <baseline/ceiling or dynamic scaling rules between
+  dispatches based on integration queue depth, rate limits and system load>.
   Expensive shared verification: <browser/e2e/device runs and how they are queued>.
 - Per-worktree isolation: <port range or allocation, server/config overrides, no
   `reuseExistingServer` across checkouts, check that the server serves this revision>.

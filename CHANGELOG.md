@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Add guidelines for continuous capacity evaluation and dynamic worker scaling
+  in `ORCHESTRA.md`, `COORDINATION.md`, and `PROJECT.example.md`: treat host
+  capacity as an upper bound rather than a static quota, scale down on rate
+  limits (HTTP 429), resource pressure, or integration backlogs, prioritize
+  integrating waiting handoffs before dispatching new workers, and scale up
+  cautiously towards host ceiling when the integration pipeline is clear (#66).
+
 ## 0.12.1 — 2026-11-12
 
 - Clarify image rules and dashboard compatibility for private repositories in
