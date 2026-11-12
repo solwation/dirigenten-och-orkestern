@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.13.1 — 2026-11-12
+
 - Clarify that agent-created or added work issues start/resume the orchestra under
   the host's documented intake run mode, including after an idle watch; reuse the
   active conductor, respect explicit deferral and do not interpret "create an issue"
