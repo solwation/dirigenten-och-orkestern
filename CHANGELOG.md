@@ -9,6 +9,9 @@
 - Bring the GitHub Pages site up to date: six delivery gates, chat intake and the
   project review, the `workingtree/` root, the v0.14.0 pin with the `.gitignore` step
   and the full file list (#71).
+- The release checklist now requires updating README.md and the GitHub Pages site
+  (`docs/index.html`) to the released core in every release, and
+  `scripts/check-release.sh` also checks the Pages site's version pin (#72).
 
 ## 0.14.0 — 2026-11-13
 
