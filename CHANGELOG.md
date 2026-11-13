@@ -6,6 +6,9 @@
   pass versus queue session, the project review on an empty queue, the
   `workingtree/` worktree root and its `.gitignore` step, PR delivery, and the
   `scripts/` and `issueflow/` directories (#70).
+- Bring the GitHub Pages site up to date: six delivery gates, chat intake and the
+  project review, the `workingtree/` root, the v0.14.0 pin with the `.gitignore` step
+  and the full file list (#71).
 
 ## 0.14.0 — 2026-11-13
 
