@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.14.0 — 2026-11-13
+
 - When a bounded pass or queue session starts with nothing startable, run one
   bounded, read-only project review first. Its concrete findings become triaged
   issues that the same run then delivers. Once per run, deduplicated against
