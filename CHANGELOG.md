@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Bring README.md up to date with the core: six phase gates, chat intake, bounded
+  pass versus queue session, the project review on an empty queue, the
+  `workingtree/` worktree root and its `.gitignore` step, PR delivery, and the
+  `scripts/` and `issueflow/` directories (#70).
+
 ## 0.14.0 — 2026-11-13
 
 - When a bounded pass or queue session starts with nothing startable, run one
