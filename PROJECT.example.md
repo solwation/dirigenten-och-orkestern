@@ -46,6 +46,8 @@ not executable code. Keep project details here, never in the shared instructions
 - Intake hooks: <local procedure and triggers, or none>; they run while workers are
   busy, never delaying startable work. Credentials never go here.
 - Session review on queue drain: <default, extra areas to inspect, or disabled>.
+- Project review on an empty queue at start: <default, areas and checks to focus on,
+  finding cap (default 5), or disabled>.
 - Workspace, server and browser setup: <relevant local docs>.
 - Required tests, release checks and evidence-before-close: <rules>.
 - Phase hooks: <definitions below or a link to project documentation; none if unused>.

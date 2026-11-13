@@ -68,6 +68,7 @@ means the shared rules apply unchanged.
 | Delivery mode | Direct to `main` (see *Commit and push requested changes*); PR mode does not apply |
 | Wait mechanism | Interactive Claude Code blocks a foreground `sleep`: wait with a background timer (Bash `run_in_background` running `sleep 300`, which re-invokes the conductor when it exits) or the Monitor tool with an until-loop; a finishing worker or a maintainer message also wakes the conductor. `claude -p '/orkester'` and one-shot cloud runs cannot wait: they run a bounded pass and say that no poll or idle watch ran |
 | Session review on drain | Core default |
+| Project review on an empty queue | Core default: check consistency between the core, adapters, PROJECT.example.md, INSTALL.md and CHANGELOG, run the required checks, and file at most 5 findings |
 | Workspace/server setup | None; Markdown only |
 | Required checks | `python3 scripts/check-links.py` and the maintainer checks below |
 | Installed version, upstream discovery | Not applicable: the root files are the installed core and the conductor already runs the newest revision (see above) |

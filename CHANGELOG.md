@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- When a bounded pass or queue session starts with nothing startable, run one
+  bounded, read-only project review first. Its concrete findings become triaged
+  issues that the same run then delivers. Once per run, deduplicated against
+  existing issues, capped at 5 findings by default; hosts can focus or disable it
+  (#69).
+
 - Default the worktree root to a git-ignored `workingtree/` directory inside the
   project checkout instead of sibling directories beside the project; document the
   `.gitignore` entry, the `git clean -x` pitfall and that platform-created checkouts

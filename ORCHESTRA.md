@@ -30,7 +30,9 @@ Reading these files alone never starts an unattended run. A chat request for cha
 starts the workflow under [chat intake](#turn-chat-requests-into-work). An empty scope,
 such as a bare `/orkester`, lets the conductor choose the work: by default one
 [bounded pass](COORDINATION.md#run-a-bounded-pass); a host policy may configure a queue
-session instead.
+session instead. Either run starts with a
+[project review](COORDINATION.md#review-the-project-on-an-empty-queue) when nothing is
+startable.
 
 ## Checklist
 
