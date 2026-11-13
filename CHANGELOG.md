@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.14.2 — 2026-11-13
+
 - Add `scripts/test_check_release.py`, run by CI: it exercises
   `scripts/check-release.sh` in a disposable repository through its `RELEASES_FILE`
   hook and covers a consistent release, a stale or missing pin in README.md,
