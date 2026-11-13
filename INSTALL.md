@@ -18,7 +18,9 @@ Copy the project example to `.orchestra/project.md`, fill it in, then link the h
 agent entry points to that policy and `.orchestra/shared/ORCHESTRA.md`. A slash command
 is only a thin adapter: read host policy, read core, pass user scope (for an empty
 scope see the [read map](ORCHESTRA.md#read-map)). Do not copy the core into a second
-prompt. Keep project configuration outside `.orchestra/shared`.
+prompt. Keep project configuration outside `.orchestra/shared`. Add `/workingtree/`
+to the project's `.gitignore`: worker checkouts go there by default
+([isolation](ORCHESTRA.md#isolate-concurrent-agents)), not beside the project.
 
 ### Connect agent entry points
 

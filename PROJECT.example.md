@@ -28,8 +28,10 @@ not executable code. Keep project details here, never in the shared instructions
   Expensive shared verification: <browser/e2e/device runs and how they are queued>.
 - Per-worktree isolation: <port range or allocation, server/config overrides, no
   `reuseExistingServer` across checkouts, check that the server serves this revision>.
-- Worktree root and cleanup: <directory holding session checkouts; by default the
-  integration owner removes an issue's checkout at follow-up and the session review and
+- Worktree root and cleanup: <directory holding session checkouts; by default
+  `workingtree/` inside the project checkout, listed in `.gitignore`, never sibling
+  directories beside the project; the integration owner removes an issue's checkout at
+  follow-up and the session review and
   startup prune the root with `scripts/prune-worktrees.sh`; archive directory for
   unproven work, protected clones, or cleanup disabled>.
 - Runtime/model selection: <available economical/stronger capabilities, concrete model

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Default the worktree root to a git-ignored `workingtree/` directory inside the
+  project checkout instead of sibling directories beside the project; document the
+  `.gitignore` entry, the `git clean -x` pitfall and that platform-created checkouts
+  keep their own location (#68).
+
 ## 0.13.1 — 2026-11-12
 
 - Clarify that agent-created or added work issues start/resume the orchestra under
