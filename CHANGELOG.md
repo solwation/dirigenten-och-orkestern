@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Name the script unit tests as a required check after changes under `scripts/`, in
+  AI.md and CONTRIBUTING.md with the command CI runs, and ignore `__pycache__/` so a
+  local test run leaves the checkout clean (#76).
+
 - Pages site: the manual install now continues with the project policy, the agent
   entry file and how to start a run, as README does; the hero names PR delivery
   beside direct delivery, and `/orkester` is presented as the Claude Code adapter (#75).

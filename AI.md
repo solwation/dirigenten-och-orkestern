@@ -75,7 +75,7 @@ means the shared rules apply unchanged.
 | Session review on drain | Core default |
 | Project review on an empty queue | Core default: check consistency between the core, adapters, PROJECT.example.md, INSTALL.md and CHANGELOG, run the required checks, and file at most 5 findings |
 | Workspace/server setup | None; Markdown only |
-| Required checks | `python3 scripts/check-links.py` and the maintainer checks below |
+| Required checks | `python3 scripts/check-links.py`; after a change under `scripts/` also `python3 -B -m unittest discover -s scripts -p 'test_*.py'` (CI runs both); and the maintainer checks below |
 | Installed version, upstream discovery | Not applicable: the root files are the installed core and the conductor already runs the newest revision (see above) |
 | Shell pitfall | `gh issue view` without `--json` may fail here with "GraphQL: Projects (classic) is being deprecated ... (repository.issue.projectCards)". Use `gh api repos/solwation/dirigenten-och-orkestern/issues/N` and `.../issues/N/comments` instead |
 | Attribution and licenses | Commit trailers and PR notes name the tool and model that did the work; never another provider. The repository license is [LICENSE.md](LICENSE.md); the Issueflow snapshot keeps its own [license](issueflow/LICENSE.md) |
