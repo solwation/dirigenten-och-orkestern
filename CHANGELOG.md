@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- `scripts/prune-worktrees.sh` now also looks up a one-digit issue number ending a
+  branch name. A checkout on `issue-7` with an open issue was classified `unproven`
+  and could be archived and removed; it is `active` like any other. A regression test
+  covers the open-issue lookup with a stand-in `gh` (#73).
+
 ## 0.14.1 — 2026-11-13
 
 - Bring README.md up to date with the core: six phase gates, chat intake, bounded
