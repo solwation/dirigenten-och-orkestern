@@ -7,6 +7,11 @@
   checkout, and the drain and startup prune runs over both `workingtree/` and
   `.claude/worktrees/` (#78).
 
+- `scripts/prune-worktrees.sh --apply` now also deletes the branch of an integrated
+  worktree whose commits reached main as patches (rebase or cherry-pick), as the
+  direct-to-main delivery produces; it was kept and wrongly reported as "not on main",
+  and no later prune could find it. A regression test covers a cherry-picked delivery (#79).
+
 ## 0.14.2 — 2026-11-13
 
 - Add `scripts/test_check_release.py`, run by CI: it exercises
