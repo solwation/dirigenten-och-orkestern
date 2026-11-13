@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Pages site: the manual install now continues with the project policy, the agent
+  entry file and how to start a run, as README does; the hero names PR delivery
+  beside direct delivery, and `/orkester` is presented as the Claude Code adapter (#75).
+
 - State when Claude Code actually reads `AGENTS.md` in INSTALL.md: only when no
   `CLAUDE.md`, `.claude/CLAUDE.md` or `CLAUDE.local.md` exists in the project or any
   directory above it. This repository's own `AGENTS.md` now says it applies only at the
