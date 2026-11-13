@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Add `scripts/test_check_release.py`, run by CI: it exercises
+  `scripts/check-release.sh` in a disposable repository through its `RELEASES_FILE`
+  hook and covers a consistent release, a stale or missing pin in README.md,
+  INSTALL.md and the Pages site, a tag without a release and a missing CHANGELOG
+  heading (#77).
+
 - Name the script unit tests as a required check after changes under `scripts/`, in
   AI.md and CONTRIBUTING.md with the command CI runs, and ignore `__pycache__/` so a
   local test run leaves the checkout clean (#76).
