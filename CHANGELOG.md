@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.14.3 — 2026-11-13
+
 - AI.md: Claude Code's Agent tool puts worker checkouts in `.claude/worktrees/`, which
   `.gitignore` now ignores so they no longer show as untracked in the integration
   checkout, and the drain and startup prune runs over both `workingtree/` and
