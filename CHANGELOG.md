@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- State when Claude Code actually reads `AGENTS.md` in INSTALL.md: only when no
+  `CLAUDE.md`, `.claude/CLAUDE.md` or `CLAUDE.local.md` exists in the project or any
+  directory above it. This repository's own `AGENTS.md` now says it applies only at the
+  root of the upstream repository, so the copy a consumer receives under
+  `.orchestra/shared` is inert, and `.claude/CLAUDE.md` imports it for Claude Code
+  sessions where a parent `CLAUDE.md` would otherwise hide it (#74).
+
 - `scripts/prune-worktrees.sh` now also looks up a one-digit issue number ending a
   branch name. A checkout on `issue-7` with an open issue was classified `unproven`
   and could be archived and removed; it is `active` like any other. A regression test

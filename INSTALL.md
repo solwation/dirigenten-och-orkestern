@@ -29,7 +29,7 @@ agent uses (or to several). Names checked against each vendor's documentation:
 
 | Agent | Entry file | Notes |
 | --- | --- | --- |
-| Claude Code | `CLAUDE.md` | Reads `AGENTS.md` only when no `CLAUDE.md` exists; otherwise add `@AGENTS.md` to `CLAUDE.md` to share one file ([docs](https://code.claude.com/docs/en/memory#agents-md)) |
+| Claude Code | `CLAUDE.md` | Reads `AGENTS.md` only when no `CLAUDE.md`, `.claude/CLAUDE.md` or `CLAUDE.local.md` exists in the project or any directory above it, so a personal file in a parent directory is enough to skip it. Add `@AGENTS.md` to the project's `CLAUDE.md` to share one file reliably ([docs](https://code.claude.com/docs/en/memory#agents-md)) |
 | Codex | `AGENTS.md` | [docs](https://developers.openai.com/codex/guides/agents-md) |
 | Gemini CLI | `GEMINI.md` | `AGENTS.md` only if `context.fileName` is configured ([docs](https://geminicli.com/docs/cli/gemini-md/)) |
 | Cursor | `AGENTS.md`, or `.cursor/rules/orchestra.mdc` | A rule needs `alwaysApply: true` in its frontmatter to apply to every chat ([docs](https://cursor.com/docs/context/rules)) |

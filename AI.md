@@ -43,11 +43,16 @@ installed core; there is no `.orchestra/shared` subtree, release pin or separate
 project policy, and this file takes the role of `.orchestra/project.md`. Upstream
 update discovery does not apply: the conductor already runs the newest revision.
 `/orkester` is the thin adapter in
-[.claude/commands/orkester.md](.claude/commands/orkester.md). A change to the core
+[.claude/commands/orkester.md](.claude/commands/orkester.md). [AGENTS.md](AGENTS.md) is
+the entry file for every agent; [.claude/CLAUDE.md](.claude/CLAUDE.md) only imports it,
+because Claude Code skips `AGENTS.md` whenever a `CLAUDE.md` exists in the checkout or
+any directory above it. Keep rules out of both. A change to the core
 governs the session that makes it from the point it is read again, and any later
 session; record which revision a delivery followed when that matters. Consumers
 importing this repository by subtree receive the adapter under
-`.orchestra/shared/.claude/`, where hosts do not load it.
+`.orchestra/shared/.claude/`, where hosts do not load it, and a copy of AGENTS.md,
+which an agent may load when it reads files beside it; that file therefore says it
+applies only in this repository.
 
 ## Host settings
 
