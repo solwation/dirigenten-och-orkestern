@@ -135,7 +135,6 @@ class PruneWorktreesTests(unittest.TestCase):
         self.assertFalse(path.exists())
         self.assertEqual(git("branch", "--list", "issue-5", cwd=self.main), "")
 
-
     def test_clone_with_only_a_stash_is_kept_and_archived(self):
         clone = self.root / "clone"
         git("clone", "-q", str(self.tmp / "origin.git"), str(clone), cwd=self.tmp)
