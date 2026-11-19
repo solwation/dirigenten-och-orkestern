@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.14.5 — 2026-11-19
+
 - `scripts/prune-worktrees.sh` no longer treats a clone whose only unpublished work is
   a `git stash` as integrated: `--apply` deleted it together with the stash. Such a
   clone is now `unproven` with its stash count shown, and `--archive` bundles every
