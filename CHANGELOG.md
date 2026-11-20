@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.15.0 — 2026-11-20
+
 - Trusted issue authors: ORCHESTRA.md *Trust issue authors and content* closes the
   gap where anyone able to open an issue in a public repository could queue work that
   an unattended run implemented and published. An issue from an account without write
