@@ -10,6 +10,11 @@
   repository itself are still listed separately. A regression test covers a submodule
   inside a claimed worktree (#83).
 
+- Link checker: `scripts/check-links.py` now also checks Markdown links whose text
+  wraps onto the next line of a paragraph (reported at the line where the target
+  starts); it scanned line by line before and skipped them, including two in
+  COORDINATION.md and ORCHESTRA.md. Fenced code and inline code stay excluded (#84).
+
 ## 0.15.0 — 2026-11-20
 
 - Trusted issue authors: ORCHESTRA.md *Trust issue authors and content* closes the
