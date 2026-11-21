@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- `scripts/prune-worktrees.sh` no longer treats a submodule or other repository inside
+  a checkout's working tree as a checkout of its own. `--apply` classified the
+  submodule of a worker checkout as `integrated` and deleted it, even when the
+  surrounding checkout was `active` under its claim marker. Such a repository is now
+  part of its enclosing checkout and is not listed; worktrees of the enclosing
+  repository itself are still listed separately. A regression test covers a submodule
+  inside a claimed worktree (#83).
+
 ## 0.15.0 — 2026-11-20
 
 - Trusted issue authors: ORCHESTRA.md *Trust issue authors and content* closes the
