@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Link checker: a code span that wraps onto the next line of a paragraph is now blanked
+  as one span. Since paragraphs are joined (#84), its closing backtick paired with the
+  next one in the paragraph instead, so a link after it was silently skipped and a
+  link inside it was checked. A regression test covers both (#85).
+
 ## 0.15.1 — 2026-11-21
 
 - `scripts/prune-worktrees.sh` no longer treats a submodule or other repository inside
